@@ -1,38 +1,38 @@
+using System;
 using System.Linq;
 using Random = System.Random;
 
 public class DeckController
 {
     public static DeckController Instance { get; private set; }
+    private Suit PlayerSuit = (Suit)0;
     public CardModel[] Deck = new CardModel[52];
     public CardModel[] ReadOnlyDeck = new CardModel[52];
     public int currentIndex = 0;
 
     public DeckController() 
     {
-        for (int i = 1; i <= 13; i++) 
+        for (int suit = 0; suit < 4; suit++) 
         {
-            CardModel heart = new((Suit)0, i, currentIndex);
-            AddCard(heart);
-
-            CardModel diamond = new((Suit)1, i, currentIndex);
-            AddCard(diamond);
-
-            CardModel club = new((Suit)2, i, currentIndex);
-            AddCard(club);
-
-            CardModel spade = new((Suit)3, i, currentIndex);
-            AddCard(spade);
+            for (int i = 1; i <= 13; i++)
+            {
+                CardModel card = new((Suit)suit, i, currentIndex);
+                AddCard(card);
+            }
         }
+        
         currentIndex = 0;
         Deck = ReadOnlyDeck;
         Instance = this;
     }
 
+    public void SetPlayerSuit(Suit suit) => PlayerSuit = suit;
+
     public void Shuffle() 
     {
         Random rng = new();
-        Deck = ReadOnlyDeck;
+        Deck = new CardModel[52];
+        Array.Copy(ReadOnlyDeck, Deck, ReadOnlyDeck.Length);
         for (int i = 51; i > 0; i--)
         {
             int j = rng.Next(i + 1);
@@ -45,6 +45,45 @@ public class DeckController
         CardModel result = null;
         Random rng = new();
         var suit = ReadOnlyDeck.Where(x => x.GetSuit() == fromSuit).ToArray();
+        if (suit.Length > 0)
+        {
+            result = suit[rng.Next(suit.Length)];
+        }
+
+        return result;
+    }
+
+    public CardModel GetARandomCardExclude(Suit fromSuit)
+    {
+        CardModel result = null;
+        Random rng = new();
+        CardModel[] suit = ReadOnlyDeck.Where(x => x.GetSuit() != fromSuit).ToArray();
+        if (suit.Length > 0)
+        {
+            result = suit[rng.Next(suit.Length)];
+        }
+
+        return result;
+    }
+
+    public CardModel GetARandomCardExclude()
+    {
+        CardModel result = null;
+        Random rng = new();
+        CardModel[] suit = ReadOnlyDeck.Where(x => x.GetSuit() != PlayerSuit).ToArray();
+        if (suit.Length > 0)
+        {
+            result = suit[rng.Next(suit.Length)];
+        }
+
+        return result;
+    }
+
+    public CardModel GetARandomCardFromPlayerSuit()
+    {
+        CardModel result = null;
+        Random rng = new();
+        var suit = ReadOnlyDeck.Where(x => x.GetSuit() == PlayerSuit).ToArray();
         if (suit.Length > 0)
         {
             result = suit[rng.Next(suit.Length)];

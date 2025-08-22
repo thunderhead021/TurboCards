@@ -17,7 +17,11 @@ public class CardModel
     public void ModifyValue(int modifier)
     {
         CardValue += modifier;
-        Math.Clamp(CardValue, 1, 13);
+
+        if(CardValue > 13)
+            CardValue = 13;
+        else if (CardValue < 1)
+            CardValue = 1;
     }
 
     public void ModifySuit(Suit suit)

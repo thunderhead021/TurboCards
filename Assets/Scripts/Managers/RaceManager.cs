@@ -3,10 +3,7 @@ using UnityEngine;
 
 public class RaceManager : Manager<RaceManager>
 {
-    public RaceView raceView;
-
-    [HideInInspector]
-    public DeckController deckController = new();
+    public RaceView raceView; 
 
     [HideInInspector]
     public RaceController raceController = new();
@@ -70,12 +67,12 @@ public class RaceManager : Manager<RaceManager>
 
     public void Shuffle() 
     {
-        deckController.Shuffle();
+        TrainingManager.Instance.deckController.Shuffle();
     }
 
     public void GetNextCardFromDeck() 
     {
-        var card = deckController.GetNextCardFromDeck();
+        var card = TrainingManager.Instance.deckController.GetNextCardFromDeck();
         Debug.Log(card.GetSuit().ToString() + "-" + card.GetCardValue().ToString());
         if (raceController.MovingToGoal(card.GetSuit(), (int)card.GetCardValue()))
         {
