@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RaceManager : Manager<RaceManager>
 {
@@ -78,6 +79,7 @@ public class RaceManager : Manager<RaceManager>
         {
             Debug.Log("Winner " +  card.GetSuit().ToString() );
             RaceEnd = true;
+            SceneManager.LoadScene("Training Scene");
         }
         else 
         {
