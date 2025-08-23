@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 public class CardModel
 {
@@ -8,11 +9,21 @@ public class CardModel
 
     private readonly int id = -1;
 
+    private List<CardSkillModel> skills = new();
+
+    private CardSkillModel currentSkillInTraining = null;
+
+    private int turnUntilSkillIsLearn = -1;
+
     public int GetId() => id;
 
     public Suit GetSuit() => CardSuit;
 
     public int GetCardValue() => CardValue;
+
+    public int GetTurnUntilSkillIsLearn() => turnUntilSkillIsLearn;
+
+    public bool IsLearningASkill => currentSkillInTraining != null;
 
     public void ModifyValue(int modifier)
     {
@@ -27,6 +38,39 @@ public class CardModel
     public void ModifySuit(Suit suit)
     {
         CardSuit = suit;
+    }
+
+    public void LearnASkill(CardSkillModel skill) 
+    {
+        currentSkillInTraining = skill;
+        turnUntilSkillIsLearn = skill.TrainingReqiredTurns;
+    }
+
+    public void LearningSkill() 
+    {
+        if (currentSkillInTraining != null) 
+        {
+            turnUntilSkillIsLearn--;
+            if (turnUntilSkillIsLearn == 0) 
+            {
+                AddSkill(currentSkillInTraining);
+                currentSkillInTraining = null;
+                turnUntilSkillIsLearn = -1;
+            }
+        }
+    }
+
+    public void UseSkill() 
+    {
+        foreach (CardSkillModel skill in skills) 
+        {
+            skill.Action();
+        }
+    }
+
+    public void AddSkill(CardSkillModel skill) 
+    {
+        skills.Add(skill);
     }
 
     public CardModel(Suit suit, int cardValue, int id) 

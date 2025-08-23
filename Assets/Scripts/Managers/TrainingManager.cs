@@ -14,6 +14,8 @@ public class TrainingManager : Manager<TrainingManager>
 
     public DeckView DeckView;
 
+    public TrainingUIView uIView;
+
     public void IncreaseValue() 
     {
         trainningController.PlayerBuff(0);
@@ -32,11 +34,13 @@ public class TrainingManager : Manager<TrainingManager>
     public void ResetTrainingAmount() 
     {
         TrainingAmount = 5;
+        uIView.UpdateRemainTurn(TrainingAmount);
     }
 
     private void UpDateTrainingAmount() 
     {
         TrainingAmount--;
+        uIView.UpdateRemainTurn(TrainingAmount);
         if (TrainingAmount <= 0)
         {
             SceneManager.LoadScene("Run Scene");
