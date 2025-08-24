@@ -26,6 +26,11 @@ public class DeckController
         Instance = this;
     }
 
+    public void UpdateCard(CardModel card) 
+    {
+        Instance.ReadOnlyDeck[card.GetId()] = card;
+    }
+
     public void SetPlayerSuit(Suit suit) => PlayerSuit = suit;
 
     public void Shuffle() 

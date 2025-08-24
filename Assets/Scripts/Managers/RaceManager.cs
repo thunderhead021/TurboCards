@@ -68,14 +68,14 @@ public class RaceManager : Manager<RaceManager>
 
     public void Shuffle() 
     {
-        TrainingManager.Instance.deckController.Shuffle();
+        DeckController.Instance.Shuffle();
     }
 
     public void GetNextCardFromDeck() 
     {
-        var card = TrainingManager.Instance.deckController.GetNextCardFromDeck();
+        var card = DeckController.Instance.GetNextCardFromDeck();
         Debug.Log(card.GetSuit().ToString() + "-" + card.GetCardValue().ToString());
-        if (raceController.MovingToGoal(card.GetSuit(), (int)card.GetCardValue()))
+        if (raceController.MovingToGoal(card))
         {
             Debug.Log("Winner " +  card.GetSuit().ToString() );
             RaceEnd = true;

@@ -13,7 +13,9 @@ public class CardModel
 
     private CardSkillModel currentSkillInTraining = null;
 
-    private int turnUntilSkillIsLearn = -1;
+    private int skillIsLearningProgress = -1;
+
+    public List<CardSkillModel> GetCardSkills() { return skills; }
 
     public int GetId() => id;
 
@@ -21,9 +23,11 @@ public class CardModel
 
     public int GetCardValue() => CardValue;
 
-    public int GetTurnUntilSkillIsLearn() => turnUntilSkillIsLearn;
+    public int GetSkillIsLearningProgress() => skillIsLearningProgress;
 
-    public bool IsLearningASkill => currentSkillInTraining != null;
+    public int GetCurrentSkillTrainingReqiredTurns() => currentSkillInTraining != null ? currentSkillInTraining.TrainingReqiredTurns : 0;
+
+    public bool? IsLearningABuffSkill => currentSkillInTraining != null ? currentSkillInTraining.CardSkillType == SkillType.Buff : null;
 
     public void ModifyValue(int modifier)
     {
@@ -42,29 +46,21 @@ public class CardModel
 
     public void LearnASkill(CardSkillModel skill) 
     {
-        currentSkillInTraining = skill;
-        turnUntilSkillIsLearn = skill.TrainingReqiredTurns;
+        this.currentSkillInTraining = skill;
+        this.skillIsLearningProgress = 0;
     }
 
     public void LearningSkill() 
     {
         if (currentSkillInTraining != null) 
         {
-            turnUntilSkillIsLearn--;
-            if (turnUntilSkillIsLearn == 0) 
+            skillIsLearningProgress++;
+            if (skillIsLearningProgress == currentSkillInTraining.TrainingReqiredTurns) 
             {
                 AddSkill(currentSkillInTraining);
                 currentSkillInTraining = null;
-                turnUntilSkillIsLearn = -1;
+                skillIsLearningProgress = -1;
             }
-        }
-    }
-
-    public void UseSkill() 
-    {
-        foreach (CardSkillModel skill in skills) 
-        {
-            skill.Action();
         }
     }
 

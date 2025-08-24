@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 public class TrainingManager : Manager<TrainingManager>
 {
     [HideInInspector]
-    public DeckController deckController = new();
+    public TrainningController trainningController = new();
 
     [HideInInspector]
-    public TrainningController trainningController = new();
+    public DeckController DeckController = new();
 
     [HideInInspector]
     public int TrainingAmount = 5;
@@ -31,6 +31,13 @@ public class TrainingManager : Manager<TrainingManager>
         UpDateTrainingAmount();
     }
 
+    public void LearnABuffSkillValue()
+    {
+        trainningController.AddAPlayerCardBuffSkill();
+        trainningController.AddACardBuffSkill();
+        UpDateTrainingAmount();
+    }
+
     public void ResetTrainingAmount() 
     {
         TrainingAmount = 5;
@@ -41,6 +48,11 @@ public class TrainingManager : Manager<TrainingManager>
     {
         TrainingAmount--;
         uIView.UpdateRemainTurn(TrainingAmount);
+        foreach (var card in DeckController.Instance.ReadOnlyDeck) 
+        {
+            card.LearningSkill();
+        }
+
         if (TrainingAmount <= 0)
         {
             SceneManager.LoadScene("Run Scene");

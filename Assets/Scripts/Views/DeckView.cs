@@ -25,10 +25,10 @@ public class DeckView : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-        foreach (var card in TrainingManager.Instance.deckController.ReadOnlyDeck)
+        foreach (var card in DeckController.Instance.ReadOnlyDeck)
         {
             GameObject cardView = Instantiate(cardPrefab, deckGrid.transform);
-            cardView.GetComponent<Image>().sprite = GetCardSprite(card);
+            cardView.GetComponent<CardView>().Setup(GetCardSprite(card), card.GetCurrentSkillTrainingReqiredTurns(), card.GetSkillIsLearningProgress(), card.IsLearningABuffSkill);
         }
     }
 

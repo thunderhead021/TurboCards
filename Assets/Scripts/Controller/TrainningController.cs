@@ -4,9 +4,17 @@ public class TrainningController
 {
     private List<TrainingModel> allModules = new();
 
+    private List<CardSkillModel> allSkills = new();
+
     private TrainingModel[] currentModules = new TrainingModel[5];
 
     public TrainningController() 
+    {
+        AddTrainingModules();
+        AddSkills();
+    }
+
+    private void AddTrainingModules() 
     {
         allModules.Add(new SmallBuffCard_TrainingModel());
         allModules.Add(new MedianBuffCard_TrainingModel());
@@ -21,6 +29,22 @@ public class TrainningController
         allModules.Add(new SmallDebuffPlayerCard_TrainingModel());
         allModules.Add(new MedianDebuffPlayerCard_TrainingModel());
         allModules.Add(new BigDebuffPlayerCard_TrainingModel());
+    }
+
+    private void AddSkills() 
+    {
+        allSkills.Add(new SoloBuffSkill_Model(4, SkillType.Buff));
+        allSkills.Add(new SoloBuffOtherSkill_Model(4, SkillType.Buff)); 
+    }
+
+    public void AddAPlayerCardBuffSkill() 
+    {
+        allSkills[0].Setup();
+    }
+
+    public void AddACardBuffSkill()
+    {
+        allSkills[1].Setup();
     }
 
     public void SetATrainingModel(TrainingModel model, int slot) 
