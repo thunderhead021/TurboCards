@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 68960717}
   - component: {fileID: 68960716}
   - component: {fileID: 68960715}
+  - component: {fileID: 68960718}
   m_Layer: 5
   m_Name: Train increase number
   m_TagString: Untagged
@@ -202,21 +203,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 406554478}
-        m_TargetAssemblyTypeName: TrainingManager, Assembly-CSharp
-        m_MethodName: IncreaseValue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 926428159}
-        m_TargetAssemblyTypeName: DeckView, Assembly-CSharp
-        m_MethodName: ShowDeck
+      - m_Target: {fileID: 68960718}
+        m_TargetAssemblyTypeName: Activity_View, Assembly-CSharp
+        m_MethodName: StartActivity
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -264,6 +253,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 68960713}
   m_CullTransparentMesh: 1
+--- !u!114 &68960718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68960713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425bf6756219e3843aa90ce8ede037ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficulty: 0
+  trainingType: 0
 --- !u!1 &157378205
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,6 +450,14 @@ MonoBehaviour:
   TrainingAmount: 5
   DeckView: {fileID: 926428159}
   uIView: {fileID: 595832726}
+  RTAEvents:
+  - {fileID: 1273651741398398587, guid: 4a99934eab6a9954eade8c67612aa5a5, type: 3}
+  - {fileID: 6631644315383070653, guid: 232b4ce5fde248043b394591aa4990f2, type: 3}
+  Activities:
+  - {fileID: 68960718}
+  - {fileID: 421607686}
+  - {fileID: 1784342707}
+  minDifficulty: 0
 --- !u!1 &421607681
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,6 +470,7 @@ GameObject:
   - component: {fileID: 421607685}
   - component: {fileID: 421607684}
   - component: {fileID: 421607683}
+  - component: {fileID: 421607686}
   m_Layer: 5
   m_Name: Train decrease number
   m_TagString: Untagged
@@ -530,21 +542,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 406554478}
-        m_TargetAssemblyTypeName: TrainingManager, Assembly-CSharp
-        m_MethodName: DecreaseValue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 926428159}
-        m_TargetAssemblyTypeName: DeckView, Assembly-CSharp
-        m_MethodName: ShowDeck
+      - m_Target: {fileID: 421607686}
+        m_TargetAssemblyTypeName: Activity_View, Assembly-CSharp
+        m_MethodName: StartActivity
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -592,6 +592,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 421607681}
   m_CullTransparentMesh: 1
+--- !u!114 &421607686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421607681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425bf6756219e3843aa90ce8ede037ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficulty: 0
+  trainingType: 1
 --- !u!1 &595832725
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,7 +817,7 @@ GameObject:
   - component: {fileID: 1282094146}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Playmat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1123,6 +1137,7 @@ GameObject:
   - component: {fileID: 1784342706}
   - component: {fileID: 1784342705}
   - component: {fileID: 1784342704}
+  - component: {fileID: 1784342707}
   m_Layer: 5
   m_Name: Train card skill
   m_TagString: Untagged
@@ -1194,21 +1209,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 406554478}
-        m_TargetAssemblyTypeName: TrainingManager, Assembly-CSharp
-        m_MethodName: LearnABuffSkillValue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 926428159}
-        m_TargetAssemblyTypeName: DeckView, Assembly-CSharp
-        m_MethodName: ShowDeck
+      - m_Target: {fileID: 1784342707}
+        m_TargetAssemblyTypeName: Activity_View, Assembly-CSharp
+        m_MethodName: StartActivity
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1256,6 +1259,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1784342702}
   m_CullTransparentMesh: 1
+--- !u!114 &1784342707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784342702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425bf6756219e3843aa90ce8ede037ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficulty: 0
+  trainingType: 2
 --- !u!1 &1865451728
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,6 +1555,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1003836755474200469, guid: e5b0ee12113a00a4b96526a027913eca, type: 3}
       propertyPath: m_Name
+      value: Deck
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003836755474200469, guid: e5b0ee12113a00a4b96526a027913eca, type: 3}
+      propertyPath: m_TagString
       value: Deck
       objectReference: {fileID: 0}
     - target: {fileID: 8763323230151893457, guid: e5b0ee12113a00a4b96526a027913eca, type: 3}
