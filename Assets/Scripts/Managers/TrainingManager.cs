@@ -81,7 +81,6 @@ public class TrainingManager : Manager<TrainingManager>
 
     public void QTAResult(bool isSucess, TrainingType trainingType, int difficulty) 
     {
-        Debug.Log(isSucess);
         switch (trainingType) 
         {
             case TrainingType.Buff:
