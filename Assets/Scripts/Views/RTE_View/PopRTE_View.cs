@@ -7,7 +7,7 @@ public class PopRTE_View : RTE_View
     public Balloon balloonPrefab;
     public Slider Timer;
     public RectTransform balloonParent;  
-    public int balloonCount = 5;
+    public int balloonCount = 10;
     public float duration = 10f;
 
     private List<GameObject> balloons = new();
