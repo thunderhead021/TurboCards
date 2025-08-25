@@ -119,7 +119,7 @@ public class SliderRTE_View : RTE_View
         }
     }
 
-    public void StartQTE()
+    public override void StartRTE()
     {
         elapsedTime = 0f;
         currentIndex = 0;

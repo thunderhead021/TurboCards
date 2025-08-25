@@ -13,4 +13,6 @@ public abstract class RTE_View : MonoBehaviour
         this.difficulty = difficulty;
         this.trainingType = type;
     }
+
+    public abstract void StartRTE();
 }

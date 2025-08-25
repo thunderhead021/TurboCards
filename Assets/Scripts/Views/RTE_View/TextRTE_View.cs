@@ -16,7 +16,7 @@ public class TextRTE_View : RTE_View
     [SerializeField]
     private string[] hardWords = { "strawberry shortcake", "chocolate croissant", "vanilla milkshake" };
 
-    public void StartEvent() 
+    public override void StartRTE() 
     {
         StartCoroutine(StartEventCoroutine());
     }

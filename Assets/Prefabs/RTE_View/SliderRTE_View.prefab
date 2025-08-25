@@ -715,7 +715,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1101276368366142753}
         m_TargetAssemblyTypeName: SliderRTE_View, Assembly-CSharp
-        m_MethodName: StartQTE
+        m_MethodName: StartRTE
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

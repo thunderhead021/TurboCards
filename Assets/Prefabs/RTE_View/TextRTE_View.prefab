@@ -483,7 +483,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1273651741398398587}
         m_TargetAssemblyTypeName: TextRTE_View, Assembly-CSharp
-        m_MethodName: StartEvent
+        m_MethodName: StartRTE
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
