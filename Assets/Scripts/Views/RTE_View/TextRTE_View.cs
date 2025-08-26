@@ -48,6 +48,7 @@ public class TextRTE_View : RTE_View
             {
                 TrainingManager.Instance.QTAResult(true, trainingType, difficulty);
                 playerInput.interactable = false;
+                Destroy(gameObject);
                 yield break;
             }
             yield return new WaitForSeconds(0.1f);

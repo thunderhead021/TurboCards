@@ -19,16 +19,24 @@ public class TrainningController
         allModules.Add(new SmallBuffCard_TrainingModel());
         allModules.Add(new MedianBuffCard_TrainingModel());
         allModules.Add(new BigBuffCard_TrainingModel());
+        allModules.Add(new MaxBuffCard_TrainingModel()); 
         allModules.Add(new SmallBuffEnemyCard_TrainingModel());
         allModules.Add(new MedianBuffEnemyCard_TrainingModel());
-        allModules.Add(new BigBuffCard_TrainingModel());
+        allModules.Add(new BigBuffEnemyCard_TrainingModel());
+        allModules.Add(new MaxBuffEnemyCard_TrainingModel());
 
         allModules.Add(new SmallDebuffCard_TrainingModel());
         allModules.Add(new MedianDebuffCard_TrainingModel());
         allModules.Add(new BigDebuffCard_TrainingModel());
+        allModules.Add(new MaxDebuffCard_TrainingModel());
         allModules.Add(new SmallDebuffPlayerCard_TrainingModel());
         allModules.Add(new MedianDebuffPlayerCard_TrainingModel());
         allModules.Add(new BigDebuffPlayerCard_TrainingModel());
+        allModules.Add(new MaxDebuffPlayerCard_TrainingModel());
+
+        allModules.Add(new ConvertCardToPlayer_TrainingModel());
+        allModules.Add(new ConvertCardToEnemy_TrainingModel());
+        allModules.Add(new SwapCard_TrainingModel());
     }
 
     private void AddSkills() 
@@ -59,7 +67,7 @@ public class TrainningController
 
     public void PlayerBuff(int option) 
     {
-        if (option >= 0 && option <= 2) 
+        if (option >= 0 && option <= 3) 
         {
             switch (option) 
             {
@@ -72,24 +80,30 @@ public class TrainningController
                 case 2:
                     allModules[2].Action();
                     break;
+                case 3:
+                    allModules[3].Action();
+                    break;
             }
         }
     }
 
     public void OtherBuff(int option)
     {
-        if (option >= 0 && option <= 2)
+        if (option >= 0 && option <= 3)
         {
             switch (option)
             {
                 case 0:
-                    allModules[3].Action();
-                    break;
-                case 1:
                     allModules[4].Action();
                     break;
-                case 2:
+                case 1:
                     allModules[5].Action();
+                    break;
+                case 2:
+                    allModules[6].Action();
+                    break;
+                case 3:
+                    allModules[7].Action();
                     break;
             }
         }
@@ -97,18 +111,21 @@ public class TrainningController
 
     public void OtherDebuff(int option)
     {
-        if (option >= 0 && option <= 2)
+        if (option >= 0 && option <= 3)
         {
             switch (option)
             {
                 case 0:
-                    allModules[6].Action();
+                    allModules[8].Action();
                     break;
                 case 1:
-                    allModules[7].Action();
+                    allModules[9].Action();
                     break;
                 case 2:
-                    allModules[8].Action();
+                    allModules[10].Action();
+                    break;
+                case 3:
+                    allModules[11].Action();
                     break;
             }
         }
@@ -116,20 +133,38 @@ public class TrainningController
 
     public void PlayerDebuff(int option)
     {
-        if (option >= 0 && option <= 2)
+        if (option >= 0 && option <= 3)
         {
             switch (option)
             {
                 case 0:
-                    allModules[9].Action();
+                    allModules[12].Action();
                     break;
                 case 1:
-                    allModules[10].Action();
+                    allModules[13].Action();
                     break;
                 case 2:
-                    allModules[11].Action();
+                    allModules[14].Action();
+                    break;
+                case 3:
+                    allModules[15].Action();
                     break;
             }
         }
+    }
+
+    public void ConvertToPlayer() 
+    {
+        allModules[16].Action();
+    }
+
+    public void ConvertToOther() 
+    {
+        allModules[17].Action();
+    }
+
+    public void Swap() 
+    {
+        allModules[18].Action();
     }
 }
