@@ -18,6 +18,12 @@ public class RaceManager : Manager<RaceManager>
     [HideInInspector]
     public bool AutoRunning = false;
 
+    [HideInInspector]
+    public int WinCount = 0;
+
+    [HideInInspector]
+    public int LoseCount = 0;
+
     protected override void Awake()
     {
         base.Awake();
@@ -79,6 +85,10 @@ public class RaceManager : Manager<RaceManager>
         {
             Debug.Log("Winner " +  card.GetSuit().ToString() );
             RaceEnd = true;
+            if (card.GetSuit() == DeckController.Instance.GetPlayerSuit())
+                WinCount++;
+            else
+                LoseCount++;
             SceneManager.LoadScene("Training Scene");
         }
         else 

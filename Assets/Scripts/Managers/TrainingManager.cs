@@ -87,9 +87,29 @@ public class TrainingManager : Manager<TrainingManager>
                 if (isSucess)
                 {
                     trainningController.PlayerBuff(difficulty);
+                    trainningController.OtherBuff(0);
+                    if (difficulty != 3)
+                        trainningController.OtherBuff(0);
+                    if (difficulty == 2)
+                        trainningController.OtherBuff(0);
                 }
-                trainningController.OtherBuff(0);
-                trainningController.OtherBuff(0);
+                else 
+                {
+                    switch (difficulty) 
+                    {
+                        case 1:
+                            trainningController.OtherBuff(0);
+                            trainningController.OtherBuff(0);
+                            trainningController.OtherBuff(0);
+                            trainningController.OtherBuff(0);
+                            break;
+                        default:
+                            trainningController.OtherBuff(difficulty);
+                            trainningController.OtherBuff(difficulty);
+                            trainningController.OtherBuff(difficulty);
+                            break;
+                    }
+                }
                 break;
             case TrainingType.Debuff:
                 if (isSucess)
@@ -99,8 +119,18 @@ public class TrainingManager : Manager<TrainingManager>
                 }
                 else 
                 {
-                    trainningController.PlayerDebuff(difficulty);
-                    trainningController.PlayerDebuff(difficulty);
+                    switch (difficulty) 
+                    {
+                        case 0:
+                        case 1:
+                            trainningController.PlayerDebuff(difficulty);
+                            break;
+                        case 2:
+                        case 3:
+                            trainningController.PlayerDebuff(difficulty);
+                            trainningController.PlayerDebuff(difficulty);
+                            break;
+                    }
                 }
                 break;
             case TrainingType.BufSkill: 
@@ -108,6 +138,40 @@ public class TrainingManager : Manager<TrainingManager>
             case TrainingType.DebuffSkill:
                 break;
             case TrainingType.ConvertSuit:
+                if (isSucess) 
+                {
+                    switch (difficulty) 
+                    {
+                        case 0:
+                            trainningController.Swap();
+                            break;
+                        case 1:
+                            trainningController.Swap();
+                            trainningController.Swap();
+                            break;
+                        case 2:
+                            trainningController.ConvertToPlayer();
+                            break;
+                        case 3:
+                            trainningController.ConvertToPlayer();
+                            trainningController.ConvertToPlayer();
+                            break;
+                    }
+                }
+                else 
+                {
+                    switch (difficulty)
+                    {
+                        case 1:
+                        case 2:
+                            trainningController.ConvertToOther();
+                            break;
+                        case 3:
+                            trainningController.ConvertToOther();
+                            trainningController.ConvertToOther();
+                            break;
+                    }
+                }
                 break;
         }
         UpDateTrainingAmount();

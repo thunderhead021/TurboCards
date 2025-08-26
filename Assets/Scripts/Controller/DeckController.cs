@@ -2,6 +2,17 @@ using System;
 using System.Linq;
 using Random = System.Random;
 
+public static class EnumUtils
+{
+    private static Random rng = new Random();
+
+    public static T GetRandomExcept<T>(T exclude) where T : Enum
+    {
+        var values = Enum.GetValues(typeof(T)).Cast<T>().Where(v => !v.Equals(exclude)).ToArray();
+        return values[rng.Next(values.Length)];
+    }
+}
+
 public class DeckController
 {
     public static DeckController Instance { get; private set; }
@@ -10,9 +21,9 @@ public class DeckController
     public CardModel[] ReadOnlyDeck = new CardModel[52];
     public int currentIndex = 0;
 
-    public DeckController() 
+    public DeckController()
     {
-        for (int suit = 0; suit < 4; suit++) 
+        for (int suit = 0; suit < 4; suit++)
         {
             for (int i = 1; i <= 13; i++)
             {
@@ -20,16 +31,21 @@ public class DeckController
                 AddCard(card);
             }
         }
-        
+
         currentIndex = 0;
         Deck = ReadOnlyDeck;
         Instance = this;
     }
 
-    public void UpdateCard(CardModel card) 
+    public void UpdateCard(CardModel card)
     {
         Instance.ReadOnlyDeck[card.GetId()] = card;
     }
+
+    public Suit GetPlayerSuit() => PlayerSuit;
+
+    public Suit GetARandomNonPlayerSuit() => EnumUtils.GetRandomExcept(PlayerSuit);
+
 
     public void SetPlayerSuit(Suit suit) => PlayerSuit = suit;
 
