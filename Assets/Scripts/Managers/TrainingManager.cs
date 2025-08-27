@@ -8,9 +8,6 @@ public class TrainingManager : Manager<TrainingManager>
     public TrainningController trainningController = new();
 
     [HideInInspector]
-    public DeckController DeckController = new();
-
-    [HideInInspector]
     public int TrainingAmount = 5;
 
     public DeckView DeckView;
@@ -38,8 +35,8 @@ public class TrainingManager : Manager<TrainingManager>
 
     public void LearnABuffSkillValue()
     {
-        trainningController.AddAPlayerCardBuffSkill();
-        trainningController.AddACardBuffSkill();
+        trainningController.AddAPlayerCardLowBuffSkill();
+        trainningController.AddACardLowBuffSkill();
         UpDateTrainingAmount();
     }
 
@@ -133,9 +130,105 @@ public class TrainingManager : Manager<TrainingManager>
                     }
                 }
                 break;
-            case TrainingType.BufSkill: 
+            case TrainingType.BufSkill:
+                if (isSucess)
+                {
+                    switch (difficulty) 
+                    {
+                        case 0:
+                            trainningController.AddAPlayerCardLowBuffSkill();
+                            trainningController.AddACardLowBuffSkill();
+                            break;
+                        case 1:
+                            trainningController.AddAPlayerCardLowBuffSkill();
+                            trainningController.AddAPlayerCardLowBuffSkill();
+                            trainningController.AddACardLowBuffSkill();
+                            break;
+                        case 2:
+                            trainningController.AddAPlayerCardHighBuffSkill();
+                            trainningController.AddACardHighBuffSkill();
+                            break;
+                        case 3:
+                            trainningController.AddAPlayerCardHighBuffSkill();
+                            trainningController.AddAPlayerCardHighBuffSkill();
+                            trainningController.AddACardHighBuffSkill();
+                            break;
+                    }
+                }
+                else 
+                {
+                    switch (difficulty)
+                    {
+                        case 0:
+                            trainningController.AddACardLowBuffSkill();
+                            trainningController.AddACardLowBuffSkill();
+                            break;
+                        case 1:
+                            trainningController.AddACardLowBuffSkill();
+                            trainningController.AddACardLowBuffSkill();
+                            trainningController.AddACardLowBuffSkill();
+                            break;
+                        case 2:
+                            trainningController.AddACardHighBuffSkill();
+                            trainningController.AddACardHighBuffSkill();
+                            break;
+                        case 3:
+                            trainningController.AddACardHighBuffSkill();
+                            trainningController.AddACardHighBuffSkill();
+                            trainningController.AddACardHighBuffSkill();
+                            break;
+                    }
+                }
                 break;
             case TrainingType.DebuffSkill:
+                if (isSucess)
+                {
+                    switch (difficulty)
+                    {
+                        case 0:
+                            trainningController.AddAPlayerCardLowDebuffSkill();
+                            trainningController.AddACardLowDebuffSkill();
+                            break;
+                        case 1:
+                            trainningController.AddAPlayerCardLowDebuffSkill();
+                            trainningController.AddAPlayerCardLowDebuffSkill();
+                            trainningController.AddACardLowDebuffSkill();
+                            break;
+                        case 2:
+                            trainningController.AddAPlayerCardHighDebuffSkill();
+                            trainningController.AddACardHighDebuffSkill();
+                            break;
+                        case 3:
+                            trainningController.AddAPlayerCardHighDebuffSkill();
+                            trainningController.AddAPlayerCardHighDebuffSkill();
+                            trainningController.AddACardHighDebuffSkill();
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (difficulty)
+                    {
+                        case 0:
+                            trainningController.AddACardLowDebuffSkill();
+                            trainningController.AddACardLowDebuffSkill();
+                            break;
+                        case 1:
+                            trainningController.AddACardLowDebuffSkill();
+                            trainningController.AddACardLowDebuffSkill();
+                            trainningController.AddACardLowDebuffSkill();
+                            break;
+                        case 2:
+                            trainningController.AddACardHighDebuffSkill();
+                            trainningController.AddACardHighDebuffSkill();
+                            break;
+                        case 3:
+                            trainningController.AddACardHighDebuffSkill();
+                            trainningController.AddACardHighDebuffSkill();
+                            trainningController.AddACardHighDebuffSkill();
+                            break;
+                    }
+                }
                 break;
             case TrainingType.ConvertSuit:
                 if (isSucess) 

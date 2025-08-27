@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 public class TrainningController
@@ -41,18 +42,93 @@ public class TrainningController
 
     private void AddSkills() 
     {
-        allSkills.Add(new SoloBuffSkill_Model(4, SkillType.Buff));
-        allSkills.Add(new SoloBuffOtherSkill_Model(4, SkillType.Buff)); 
+        allSkills.Add(new Player_BuffTrap_LowSkill_Model(4, SkillType.Buff, SkillActivationType.Trap));
+        allSkills.Add(new Player_BuffActive_LowSkill_Model(4, SkillType.Buff, SkillActivationType.Active));
+        allSkills.Add(new Player_BuffEffect_LowSkill_Model(4, SkillType.Buff, SkillActivationType.Effect));
+
+        allSkills.Add(new Other_BuffTrap_LowSkill_Model(4, SkillType.Buff, SkillActivationType.Trap));
+        allSkills.Add(new Other_BuffActive_LowSkill_Model(4, SkillType.Buff, SkillActivationType.Active));
+        allSkills.Add(new Other_BuffEffect_LowSkill_Model(4, SkillType.Buff, SkillActivationType.Effect));
+
+        allSkills.Add(new Player_BuffTrap_HighSkill_Model(6, SkillType.Buff, SkillActivationType.Trap));
+        allSkills.Add(new Player_BuffActive_HighSkill_Model(6, SkillType.Buff, SkillActivationType.Active));
+        allSkills.Add(new Player_BuffEffect_HighSkill_Model(6, SkillType.Buff, SkillActivationType.Effect));
+
+        allSkills.Add(new Other_BuffTrap_HighSkill_Model(6, SkillType.Buff, SkillActivationType.Trap));
+        allSkills.Add(new Other_BuffActive_HighSkill_Model(6, SkillType.Buff, SkillActivationType.Active));
+        allSkills.Add(new Other_BuffEffect_HighSkill_Model(6, SkillType.Buff, SkillActivationType.Effect));
+
+        allSkills.Add(new Player_DebuffTrap_LowSkill_Model(4, SkillType.Debuff, SkillActivationType.Trap));
+        allSkills.Add(new Player_DebuffActive_LowSkill_Model(4, SkillType.Debuff, SkillActivationType.Active));
+        allSkills.Add(new Player_DebuffEffect_LowSkill_Model(4, SkillType.Debuff, SkillActivationType.Effect));
+
+        allSkills.Add(new Other_DebuffTrap_LowSkill_Model(4, SkillType.Debuff, SkillActivationType.Trap));
+        allSkills.Add(new Other_DebuffActive_LowSkill_Model(4, SkillType.Debuff, SkillActivationType.Active));
+        allSkills.Add(new Other_DebuffEffect_LowSkill_Model(4, SkillType.Debuff, SkillActivationType.Effect));
+
+        allSkills.Add(new Player_DebuffTrap_HighSkill_Model(6, SkillType.Debuff, SkillActivationType.Trap));
+        allSkills.Add(new Player_DebuffActive_HighSkill_Model(6, SkillType.Debuff, SkillActivationType.Active));
+        allSkills.Add(new Player_DebuffEffect_HighSkill_Model(6, SkillType.Debuff, SkillActivationType.Effect));
+
+        allSkills.Add(new Other_DebuffTrap_HighSkill_Model(6, SkillType.Debuff, SkillActivationType.Trap));
+        allSkills.Add(new Other_DebuffActive_HighSkill_Model(6, SkillType.Debuff, SkillActivationType.Active));
+        allSkills.Add(new Other_DebuffEffect_HighSkill_Model(6, SkillType.Debuff, SkillActivationType.Effect));
     }
 
-    public void AddAPlayerCardBuffSkill() 
+    public void AddAPlayerCardLowBuffSkill() 
     {
-        allSkills[0].Setup();
+        Random rng = new();
+        int index = rng.Next(0,2);
+        allSkills[index].Setup();
     }
 
-    public void AddACardBuffSkill()
+    public void AddACardLowBuffSkill()
     {
-        allSkills[1].Setup();
+        Random rng = new();
+        int index = rng.Next(3, 5);
+        allSkills[index].Setup();
+    }
+
+    public void AddAPlayerCardHighBuffSkill()
+    {
+        Random rng = new();
+        int index = rng.Next(6, 8);
+        allSkills[index].Setup();
+    }
+
+    public void AddACardHighBuffSkill()
+    {
+        Random rng = new();
+        int index = rng.Next(9, 11);
+        allSkills[index].Setup();
+    }
+
+    public void AddAPlayerCardLowDebuffSkill()
+    {
+        Random rng = new();
+        int index = rng.Next(12, 14);
+        allSkills[index].Setup();
+    }
+
+    public void AddACardLowDebuffSkill()
+    {
+        Random rng = new();
+        int index = rng.Next(15, 17);
+        allSkills[index].Setup();
+    }
+
+    public void AddAPlayerCardHighDebuffSkill()
+    {
+        Random rng = new();
+        int index = rng.Next(18, 20);
+        allSkills[index].Setup();
+    }
+
+    public void AddACardHighDebuffSkill()
+    {
+        Random rng = new();
+        int index = rng.Next(21, 23);
+        allSkills[index].Setup();
     }
 
     public void SetATrainingModel(TrainingModel model, int slot) 

@@ -113,6 +113,32 @@ public class DeckController
         return result;
     }
 
+    public CardModel GetARandomNotLearningCardExclude()
+    {
+        CardModel result = null;
+        Random rng = new();
+        CardModel[] suit = ReadOnlyDeck.Where(x => x.GetSuit() != PlayerSuit && x.GetCurrentSkillTrainingReqiredTurns() != 0).ToArray();
+        if (suit.Length > 0)
+        {
+            result = suit[rng.Next(suit.Length)];
+        }
+
+        return result;
+    }
+
+    public CardModel GetARandomNotLearningCardFromPlayerSuit()
+    {
+        CardModel result = null;
+        Random rng = new();
+        var suit = ReadOnlyDeck.Where(x => x.GetSuit() == PlayerSuit && x.GetCurrentSkillTrainingReqiredTurns() != 0 ).ToArray();
+        if (suit.Length > 0)
+        {
+            result = suit[rng.Next(suit.Length)];
+        }
+
+        return result;
+    }
+
     public void SetCardModel(CardModel newCard) 
     {
         ReadOnlyDeck[newCard.GetId()] = newCard;

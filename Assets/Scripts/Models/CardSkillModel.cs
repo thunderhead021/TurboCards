@@ -8,19 +8,34 @@ public abstract class CardSkillModel
 
     public SkillType? CardSkillType = null;
     
-    protected CardSkillModel(int trainingReqiredTurns, SkillType skillType) 
+    public SkillActivationType skillActivationType = SkillActivationType.None;
+
+    protected CardSkillModel(int trainingReqiredTurns, SkillType skillType, SkillActivationType skillActivationType) 
     {
         TrainingReqiredTurns = trainingReqiredTurns;
         CardSkillType = skillType;
+        this.skillActivationType = skillActivationType;
     }
 
     public abstract void Setup();
 
-    public abstract void Action(int currentPosition, out int effectPostion, out int modifierValue, Suit? suit = null);
+    public abstract void TrapAction(int currentPosition, out int effectPostion, out int modifierValue, Suit? suit = null);
+
+    public abstract void ActiveAction(out int modifierValue, Suit? suit = null);
+
+    public abstract void EffectAction(out int modifierValue, out int amount, Suit? suit = null);
 }
 
 public enum SkillType 
 {
     Buff,
     Debuff
+}
+
+public enum SkillActivationType 
+{
+    None,
+    Trap,
+    Active,
+    Effect
 }

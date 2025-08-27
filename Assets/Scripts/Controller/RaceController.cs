@@ -54,22 +54,25 @@ public class RaceController
         {
             foreach (var skill in skills) 
             {
-                skill.Action(currentPosition, out int effectPosition, out int effectValue, suit);
-                if (effectPosition >= 0) 
+                if (skill.skillActivationType == SkillActivationType.Trap) 
                 {
-                    if (skill.EffectSuit != null)
+                    skill.TrapAction(currentPosition, out int effectPosition, out int effectValue, suit);
+                    if (effectPosition >= 0 && effectPosition < Goal)
                     {
-                        RaceTrack[(int)skill.EffectSuit][effectPosition] += effectValue;
+                        if (skill.EffectSuit != null)
+                        {
+                            RaceTrack[(int)skill.EffectSuit][effectPosition] += effectValue;
+                        }
+                        else
+                        {
+                            RaceTrack[0][effectPosition] += effectValue;
+                            RaceTrack[1][effectPosition] += effectValue;
+                            RaceTrack[2][effectPosition] += effectValue;
+                            RaceTrack[3][effectPosition] += effectValue;
+                        }
+
                     }
-                    else 
-                    {
-                        RaceTrack[0][effectPosition] += effectValue;
-                        RaceTrack[1][effectPosition] += effectValue;
-                        RaceTrack[2][effectPosition] += effectValue;
-                        RaceTrack[3][effectPosition] += effectValue;
-                    }
-                    
-                }
+                }    
             }
         }
         bool someoneTouchGoal = false;

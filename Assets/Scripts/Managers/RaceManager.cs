@@ -22,7 +22,7 @@ public class RaceManager : Manager<RaceManager>
     public int WinCount = 0;
 
     [HideInInspector]
-    public int LoseCount = 0;
+    public int Heath = 5;
 
     protected override void Awake()
     {
@@ -88,8 +88,8 @@ public class RaceManager : Manager<RaceManager>
             if (card.GetSuit() == DeckController.Instance.GetPlayerSuit())
                 WinCount++;
             else
-                LoseCount++;
-            SceneManager.LoadScene("Training Scene");
+                Heath--;
+            SceneManager.LoadScene("Result Scene");
         }
         else 
         {
