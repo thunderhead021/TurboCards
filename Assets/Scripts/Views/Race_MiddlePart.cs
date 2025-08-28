@@ -6,7 +6,7 @@ public class Race_MiddlePart : MonoBehaviour
     public Race_Checkpoint checkpointPrefab;
 
     [HideInInspector]
-    public List<(Race_Checkpoint row0, Race_Checkpoint row1, Race_Checkpoint row2, Race_Checkpoint row3)> parts = new();
+    public List<(Race_Checkpoint col0, Race_Checkpoint col1, Race_Checkpoint col2, Race_Checkpoint col3)> parts = new();
 
     public void Setup(int rows, float startY) 
     {
