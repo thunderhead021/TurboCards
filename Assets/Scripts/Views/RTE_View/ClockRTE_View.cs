@@ -14,7 +14,7 @@ public class ClockRTE_View : RTE_View
 
     public override void StartRTE() 
     {
-        var successZoneAngle = 10f * (4 - difficulty);
+        var successZoneAngle = 10f * (5 - difficulty);
         successZoneStart = Random.Range(0f, 365f);
         successZoneEnd = successZoneStart + successZoneAngle;
         if (successZoneImage != null)
