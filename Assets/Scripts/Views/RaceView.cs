@@ -14,7 +14,29 @@ public class RaceView : MonoBehaviour
     public List<Slider> MinimapUnits = new();
     [HideInInspector]
     public List<GameObject> CurrentTrack = new();
-    
+    public List<Image> UnitEffects = new();
+    public List<Sprite> Effects = new();
+
+    public void UpdateUnitEffects() 
+    {
+        var unitBuff = RaceController.Instance.GetSuitBuff();
+
+        for (int i = 0; i < 4; i++) 
+        {
+            if (unitBuff[i][0] > 0) 
+            {
+                UnitEffects[i].gameObject.SetActive(true);
+                UnitEffects[i].sprite = Effects[1];
+            }
+            else if(unitBuff[i][0] < 0)
+            {
+                UnitEffects[i].gameObject.SetActive(true);
+                UnitEffects[i].sprite = Effects[0];
+            }
+            else
+                UnitEffects[i].gameObject.SetActive(false);
+        }
+    }
 
     public void MoveUnit(Suit suit, int position) 
     {

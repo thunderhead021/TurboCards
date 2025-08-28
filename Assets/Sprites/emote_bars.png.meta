@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 60949377fe3fa054e948d64c5488639a
+guid: 99d4b12bdd5c09e49b6544be220aee1b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6241004887026311165
-    second: Pic1_lowres_0
+      213: 6845032635103780719
+    second: emote_bars_0
+  - first:
+      213: -6983435819491297762
+    second: emote_bars_1
+  - first:
+      213: -4230889406468627050
+    second: emote_bars_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -72,6 +78,19 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Win64
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -126,13 +145,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pic1_lowres_0
+      name: emote_bars_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1050
-        height: 425
+        y: 7
+        width: 32
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +160,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dff1ea4e0e08c9650800000000000000
-      internalID: 6241004887026311165
+      spriteID: f6f11534ae07efe50800000000000000
+      internalID: 6845032635103780719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote_bars_1
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 1
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e167b7b3f1ad51f90800000000000000
+      internalID: -6983435819491297762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emote_bars_2
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 0
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6956973408cd845c0800000000000000
+      internalID: -4230889406468627050
       vertices: []
       indices: 
       edges: []
@@ -151,7 +214,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +224,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Pic1_lowres_0: 6241004887026311165
+      emote_bars_0: 6845032635103780719
+      emote_bars_1: -6983435819491297762
+      emote_bars_2: -4230889406468627050
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 
 public class RaceController
 {
@@ -13,6 +11,8 @@ public class RaceController
     private int[][] RaceTrack = new int[4][];
 
     private int[][] SuitBuff = new int[4][];
+
+    public int[][] GetSuitBuff() => SuitBuff;
 
     public RaceController() 
     {

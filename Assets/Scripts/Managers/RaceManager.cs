@@ -122,6 +122,9 @@ public class RaceManager : Manager<RaceManager>
         {
             raceView.MovingTrackView(cameraPos);
         }
+
+        raceView.UpdateUnitEffects();
+
         StartCoroutine(RemoveCardCoroutine(cardView.gameObject));
     }
 }
