@@ -114,6 +114,8 @@ public class RaceController
         int modifyValue = value;
         for (int i = currentPosition; i <= currentPosition + value; i++) 
         {
+            if(i > Goal - 1)
+                break;
             modifyValue += RaceTrack[(int)suit][i];
             RaceTrack[(int)suit][i] = 0;
         }
