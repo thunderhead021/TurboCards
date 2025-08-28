@@ -28,11 +28,11 @@ public class DeckView : MonoBehaviour
         foreach (var card in DeckController.Instance.ReadOnlyDeck)
         {
             GameObject cardView = Instantiate(cardPrefab, deckGrid.transform);
-            cardView.GetComponent<CardView>().Setup(GetCardSprite(card), card.GetCurrentSkillTrainingReqiredTurns(), card.GetSkillIsLearningProgress(), card.IsLearningABuffSkill);
+            cardView.GetComponent<CardView>().Setup(GetCardSprite(card), card);
         }
     }
 
-    private Sprite GetCardSprite(CardModel card) 
+    public Sprite GetCardSprite(CardModel card) 
     {
         Sprite result = null;
         switch (card.GetSuit()) 

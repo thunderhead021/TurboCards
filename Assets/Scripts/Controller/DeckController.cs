@@ -23,6 +23,15 @@ public class DeckController
 
     public DeckController()
     {
+        Reset();
+        Instance = this;
+    }
+
+    public void Reset() 
+    {
+        Array.Clear(ReadOnlyDeck, 0, ReadOnlyDeck.Length);
+        currentIndex = 0;
+
         for (int suit = 0; suit < 4; suit++)
         {
             for (int i = 1; i <= 13; i++)
@@ -34,7 +43,6 @@ public class DeckController
 
         currentIndex = 0;
         Deck = ReadOnlyDeck;
-        Instance = this;
     }
 
     public void UpdateCard(CardModel card)

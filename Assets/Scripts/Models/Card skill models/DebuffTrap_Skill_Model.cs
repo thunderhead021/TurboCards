@@ -1,6 +1,6 @@
 public class Player_DebuffTrap_LowSkill_Model : CardSkillModel
 {
-    public Player_DebuffTrap_LowSkill_Model(int trainingReqiredTurns, SkillType skillType, SkillActivationType skillActivationType) : base(trainingReqiredTurns, skillType, skillActivationType)
+    public Player_DebuffTrap_LowSkill_Model(int trainingReqiredTurns, SkillType skillType, SkillActivationType skillActivationType, int id) : base(trainingReqiredTurns, skillType, skillActivationType, id)
     {
     }
 
@@ -40,7 +40,7 @@ public class Player_DebuffTrap_LowSkill_Model : CardSkillModel
 
 public class Other_DebuffTrap_LowSkill_Model : CardSkillModel
 {
-    public Other_DebuffTrap_LowSkill_Model(int trainingReqiredTurns, SkillType skillType, SkillActivationType skillActivationType) : base(trainingReqiredTurns, skillType, skillActivationType)
+    public Other_DebuffTrap_LowSkill_Model(int trainingReqiredTurns, SkillType skillType, SkillActivationType skillActivationType, int id) : base(trainingReqiredTurns, skillType, skillActivationType, id)
     {
     }
 
@@ -80,7 +80,7 @@ public class Other_DebuffTrap_LowSkill_Model : CardSkillModel
 
 public class Player_DebuffTrap_HighSkill_Model : CardSkillModel
 {
-    public Player_DebuffTrap_HighSkill_Model(int trainingReqiredTurns, SkillType skillType, SkillActivationType skillActivationType) : base(trainingReqiredTurns, skillType, skillActivationType)
+    public Player_DebuffTrap_HighSkill_Model(int trainingReqiredTurns, SkillType skillType, SkillActivationType skillActivationType, int id) : base(trainingReqiredTurns, skillType, skillActivationType, id)
     {
     }
 
@@ -111,7 +111,7 @@ public class Player_DebuffTrap_HighSkill_Model : CardSkillModel
 
 public class Other_DebuffTrap_HighSkill_Model : CardSkillModel
 {
-    public Other_DebuffTrap_HighSkill_Model(int trainingReqiredTurns, SkillType skillType, SkillActivationType skillActivationType) : base(trainingReqiredTurns, skillType, skillActivationType)
+    public Other_DebuffTrap_HighSkill_Model(int trainingReqiredTurns, SkillType skillType, SkillActivationType skillActivationType, int id) : base(trainingReqiredTurns, skillType, skillActivationType, id)
     {
     }
 

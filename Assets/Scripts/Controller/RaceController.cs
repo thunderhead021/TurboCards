@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 
 public class RaceController
 {
@@ -11,10 +12,12 @@ public class RaceController
 
     private int[][] RaceTrack = new int[4][];
 
+    private int[][] SuitBuff = new int[4][];
+
     public RaceController() 
     {
         ResetRace();
-        Instance = this;
+        Instance = this;      
     }
 
     public void SetGoal(int goal)
@@ -42,6 +45,19 @@ public class RaceController
         units.Add((new RaceUnitModel((Suit)1, 1), 0));
         units.Add((new RaceUnitModel((Suit)2, 1), 0));
         units.Add((new RaceUnitModel((Suit)3, 1), 0));
+
+        SuitBuff[0] = new int[2];
+        SuitBuff[1] = new int[2];
+        SuitBuff[2] = new int[2];
+        SuitBuff[3] = new int[2];
+
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 2; j++)
+            {
+                SuitBuff[i][j] = 0;
+            }
+        }
     }
 
     public bool MovingToGoal(CardModel cardModel) 
@@ -54,25 +70,44 @@ public class RaceController
         {
             foreach (var skill in skills) 
             {
-                if (skill.skillActivationType == SkillActivationType.Trap) 
+                switch (skill.skillActivationType) 
                 {
-                    skill.TrapAction(currentPosition, out int effectPosition, out int effectValue, suit);
-                    if (effectPosition >= 0 && effectPosition < Goal)
-                    {
+                    case SkillActivationType.Trap:
+                        skill.TrapAction(currentPosition, out int effectPosition, out int effectValue, suit);
+                        if (effectPosition >= 0 && effectPosition < Goal)
+                        {
+                            if (skill.EffectSuit != null)
+                            {
+                                RaceTrack[(int)skill.EffectSuit][effectPosition] += effectValue;
+                            }
+                            else
+                            {
+                                RaceTrack[0][effectPosition] += effectValue;
+                                RaceTrack[1][effectPosition] += effectValue;
+                                RaceTrack[2][effectPosition] += effectValue;
+                                RaceTrack[3][effectPosition] += effectValue;
+                            }
+
+                        }
+                        break;
+                    case SkillActivationType.Effect:
+                        skill.EffectAction(out int effectModifier, out int effectModifyAmount, suit);
+                        if (skill.EffectSuit != null) 
+                        {
+                            SuitBuff[(int)skill.EffectSuit][0] = effectModifier;
+                            SuitBuff[(int)skill.EffectSuit][1] = effectModifyAmount;
+                        }
+                        break;
+                    case SkillActivationType.Active:
+                        skill.ActiveAction(out int activeValue, suit);
                         if (skill.EffectSuit != null)
                         {
-                            RaceTrack[(int)skill.EffectSuit][effectPosition] += effectValue;
+                            var effectedUnit = units[(int)skill.EffectSuit];
+                            effectedUnit.currentPostion += activeValue;
+                            units[(int)skill.EffectSuit] = effectedUnit;
                         }
-                        else
-                        {
-                            RaceTrack[0][effectPosition] += effectValue;
-                            RaceTrack[1][effectPosition] += effectValue;
-                            RaceTrack[2][effectPosition] += effectValue;
-                            RaceTrack[3][effectPosition] += effectValue;
-                        }
-
-                    }
-                }    
+                        break;
+                }                
             }
         }
         bool someoneTouchGoal = false;
@@ -82,6 +117,13 @@ public class RaceController
             modifyValue += RaceTrack[(int)suit][i];
             RaceTrack[(int)suit][i] = 0;
         }
+
+        if (SuitBuff[(int)suit][1] > 0) 
+        {
+            modifyValue += SuitBuff[(int)suit][0];
+            SuitBuff[(int)suit][1]--;
+        }
+
         var unit = units[(int)suit];
         unit.currentPostion += modifyValue;
         if (unit.currentPostion >= Goal - 1)

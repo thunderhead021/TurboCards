@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public abstract class CardSkillModel
 {
     public int TrainingReqiredTurns = -1;
@@ -10,11 +8,14 @@ public abstract class CardSkillModel
     
     public SkillActivationType skillActivationType = SkillActivationType.None;
 
-    protected CardSkillModel(int trainingReqiredTurns, SkillType skillType, SkillActivationType skillActivationType) 
+    public int ID = -1;
+
+    protected CardSkillModel(int trainingReqiredTurns, SkillType skillType, SkillActivationType skillActivationType, int id) 
     {
         TrainingReqiredTurns = trainingReqiredTurns;
         CardSkillType = skillType;
         this.skillActivationType = skillActivationType;
+        ID = id;    
     }
 
     public abstract void Setup();

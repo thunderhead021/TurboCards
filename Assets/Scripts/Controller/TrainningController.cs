@@ -42,37 +42,37 @@ public class TrainningController
 
     private void AddSkills() 
     {
-        allSkills.Add(new Player_BuffTrap_LowSkill_Model(4, SkillType.Buff, SkillActivationType.Trap));
-        allSkills.Add(new Player_BuffActive_LowSkill_Model(4, SkillType.Buff, SkillActivationType.Active));
-        allSkills.Add(new Player_BuffEffect_LowSkill_Model(4, SkillType.Buff, SkillActivationType.Effect));
+        allSkills.Add(new Player_BuffTrap_LowSkill_Model(4, SkillType.Buff, SkillActivationType.Trap, 0));
+        allSkills.Add(new Player_BuffActive_LowSkill_Model(4, SkillType.Buff, SkillActivationType.Active, 1));
+        allSkills.Add(new Player_BuffEffect_LowSkill_Model(4, SkillType.Buff, SkillActivationType.Effect, 2));
 
-        allSkills.Add(new Other_BuffTrap_LowSkill_Model(4, SkillType.Buff, SkillActivationType.Trap));
-        allSkills.Add(new Other_BuffActive_LowSkill_Model(4, SkillType.Buff, SkillActivationType.Active));
-        allSkills.Add(new Other_BuffEffect_LowSkill_Model(4, SkillType.Buff, SkillActivationType.Effect));
+        allSkills.Add(new Other_BuffTrap_LowSkill_Model(4, SkillType.Buff, SkillActivationType.Trap, 0));
+        allSkills.Add(new Other_BuffActive_LowSkill_Model(4, SkillType.Buff, SkillActivationType.Active, 1));
+        allSkills.Add(new Other_BuffEffect_LowSkill_Model(4, SkillType.Buff, SkillActivationType.Effect, 2));
 
-        allSkills.Add(new Player_BuffTrap_HighSkill_Model(6, SkillType.Buff, SkillActivationType.Trap));
-        allSkills.Add(new Player_BuffActive_HighSkill_Model(6, SkillType.Buff, SkillActivationType.Active));
-        allSkills.Add(new Player_BuffEffect_HighSkill_Model(6, SkillType.Buff, SkillActivationType.Effect));
+        allSkills.Add(new Player_BuffTrap_HighSkill_Model(6, SkillType.Buff, SkillActivationType.Trap, 3));
+        allSkills.Add(new Player_BuffActive_HighSkill_Model(6, SkillType.Buff, SkillActivationType.Active, 4));
+        allSkills.Add(new Player_BuffEffect_HighSkill_Model(6, SkillType.Buff, SkillActivationType.Effect, 5));
 
-        allSkills.Add(new Other_BuffTrap_HighSkill_Model(6, SkillType.Buff, SkillActivationType.Trap));
-        allSkills.Add(new Other_BuffActive_HighSkill_Model(6, SkillType.Buff, SkillActivationType.Active));
-        allSkills.Add(new Other_BuffEffect_HighSkill_Model(6, SkillType.Buff, SkillActivationType.Effect));
+        allSkills.Add(new Other_BuffTrap_HighSkill_Model(6, SkillType.Buff, SkillActivationType.Trap, 3));
+        allSkills.Add(new Other_BuffActive_HighSkill_Model(6, SkillType.Buff, SkillActivationType.Active, 4));
+        allSkills.Add(new Other_BuffEffect_HighSkill_Model(6, SkillType.Buff, SkillActivationType.Effect, 5));
 
-        allSkills.Add(new Player_DebuffTrap_LowSkill_Model(4, SkillType.Debuff, SkillActivationType.Trap));
-        allSkills.Add(new Player_DebuffActive_LowSkill_Model(4, SkillType.Debuff, SkillActivationType.Active));
-        allSkills.Add(new Player_DebuffEffect_LowSkill_Model(4, SkillType.Debuff, SkillActivationType.Effect));
+        allSkills.Add(new Player_DebuffTrap_LowSkill_Model(4, SkillType.Debuff, SkillActivationType.Trap, 6));
+        allSkills.Add(new Player_DebuffActive_LowSkill_Model(4, SkillType.Debuff, SkillActivationType.Active, 7));
+        allSkills.Add(new Player_DebuffEffect_LowSkill_Model(4, SkillType.Debuff, SkillActivationType.Effect, 8));
 
-        allSkills.Add(new Other_DebuffTrap_LowSkill_Model(4, SkillType.Debuff, SkillActivationType.Trap));
-        allSkills.Add(new Other_DebuffActive_LowSkill_Model(4, SkillType.Debuff, SkillActivationType.Active));
-        allSkills.Add(new Other_DebuffEffect_LowSkill_Model(4, SkillType.Debuff, SkillActivationType.Effect));
+        allSkills.Add(new Other_DebuffTrap_LowSkill_Model(4, SkillType.Debuff, SkillActivationType.Trap, 6));
+        allSkills.Add(new Other_DebuffActive_LowSkill_Model(4, SkillType.Debuff, SkillActivationType.Active, 7));
+        allSkills.Add(new Other_DebuffEffect_LowSkill_Model(4, SkillType.Debuff, SkillActivationType.Effect, 8));
 
-        allSkills.Add(new Player_DebuffTrap_HighSkill_Model(6, SkillType.Debuff, SkillActivationType.Trap));
-        allSkills.Add(new Player_DebuffActive_HighSkill_Model(6, SkillType.Debuff, SkillActivationType.Active));
-        allSkills.Add(new Player_DebuffEffect_HighSkill_Model(6, SkillType.Debuff, SkillActivationType.Effect));
+        allSkills.Add(new Player_DebuffTrap_HighSkill_Model(6, SkillType.Debuff, SkillActivationType.Trap, 9));
+        allSkills.Add(new Player_DebuffActive_HighSkill_Model(6, SkillType.Debuff, SkillActivationType.Active, 10));
+        allSkills.Add(new Player_DebuffEffect_HighSkill_Model(6, SkillType.Debuff, SkillActivationType.Effect, 11));
 
-        allSkills.Add(new Other_DebuffTrap_HighSkill_Model(6, SkillType.Debuff, SkillActivationType.Trap));
-        allSkills.Add(new Other_DebuffActive_HighSkill_Model(6, SkillType.Debuff, SkillActivationType.Active));
-        allSkills.Add(new Other_DebuffEffect_HighSkill_Model(6, SkillType.Debuff, SkillActivationType.Effect));
+        allSkills.Add(new Other_DebuffTrap_HighSkill_Model(6, SkillType.Debuff, SkillActivationType.Trap, 9));
+        allSkills.Add(new Other_DebuffActive_HighSkill_Model(6, SkillType.Debuff, SkillActivationType.Active, 10));
+        allSkills.Add(new Other_DebuffEffect_HighSkill_Model(6, SkillType.Debuff, SkillActivationType.Effect, 11));
     }
 
     public void AddAPlayerCardLowBuffSkill() 

@@ -149,9 +149,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raceView: {fileID: 372234518}
+  deckView: {fileID: 1225226704}
+  CardPrefab: {fileID: 1010631516323672225, guid: abb19dd84fdc7e1479356ca871831a99, type: 3}
+  CardShowPosition: {fileID: 1738963685}
   animationDuration: 2
   RaceEnd: 0
   AutoRunning: 0
+  WinCount: 0
+  Heath: 5
 --- !u!4 &26374082
 Transform:
   m_ObjectHideFlags: 0
@@ -3235,6 +3240,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8763323230151893457, guid: e5b0ee12113a00a4b96526a027913eca, type: 3}
   m_PrefabInstance: {fileID: 1225226701}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1225226704 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2066957875967040017, guid: e5b0ee12113a00a4b96526a027913eca, type: 3}
+  m_PrefabInstance: {fileID: 1225226701}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225226702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 596cc80be6d8f0a41bb58c1865989360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1232949803
 GameObject:
   m_ObjectHideFlags: 0
@@ -4409,7 +4425,7 @@ GameObject:
   - component: {fileID: 1738963687}
   - component: {fileID: 1738963686}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Draw card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4447,7 +4463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -30,4 +30,10 @@ public class GameManager : Manager<GameManager>
     {
         SceneManager.LoadScene("Training Scene");
     }
+
+    public void NewGame()
+    {
+        DeckController.Instance.Reset();
+        SceneManager.LoadScene("Start Scene");
+    }
 }

@@ -4,7 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class RaceManager : Manager<RaceManager>
 {
-    public RaceView raceView; 
+    public RaceView raceView;
+
+    public DeckView deckView;
+
+    public CardView CardPrefab;
+
+    public Transform CardShowPosition;
 
     [HideInInspector]
     public RaceController raceController = new();
@@ -72,6 +78,17 @@ public class RaceManager : Manager<RaceManager>
         }
     }
 
+    private IEnumerator RemoveCardCoroutine(GameObject card)
+    {
+        float elapsed = 0f;
+        while (elapsed < animationDuration)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        Destroy(card);
+    }
+
     public void Shuffle() 
     {
         DeckController.Instance.Shuffle();
@@ -80,6 +97,9 @@ public class RaceManager : Manager<RaceManager>
     public void GetNextCardFromDeck() 
     {
         var card = DeckController.Instance.GetNextCardFromDeck();
+        var cardView = Instantiate(CardPrefab, CardShowPosition);
+        cardView.Setup(deckView.GetCardSprite(card), card);
+
         Debug.Log(card.GetSuit().ToString() + "-" + card.GetCardValue().ToString());
         if (raceController.MovingToGoal(card))
         {
@@ -102,5 +122,6 @@ public class RaceManager : Manager<RaceManager>
         {
             raceView.MovingTrackView(cameraPos);
         }
+        StartCoroutine(RemoveCardCoroutine(cardView.gameObject));
     }
 }

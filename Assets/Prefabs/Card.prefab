@@ -199,6 +199,66 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 44, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2330055298899342455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6518881495947673639}
+  - component: {fileID: 771793507999900150}
+  m_Layer: 5
+  m_Name: Skills
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6518881495947673639
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2330055298899342455}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7100025264910526701}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &771793507999900150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2330055298899342455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 2
+    m_Right: 2
+    m_Top: 2
+    m_Bottom: 2
+  m_ChildAlignment: 2
+  m_StartCorner: 1
+  m_StartAxis: 0
+  m_CellSize: {x: 15, y: 15}
+  m_Spacing: {x: 2, y: 2}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!1 &3833388428778880715
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,12 +491,13 @@ RectTransform:
   m_Children:
   - {fileID: 5803276397422597831}
   - {fileID: 8972823873153753117}
+  - {fileID: 6518881495947673639}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 88, y: 127.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5733290826457192055
 CanvasRenderer:
@@ -491,3 +552,18 @@ MonoBehaviour:
   CardImage: {fileID: 4615753730148755043}
   BufSkillProgres: {fileID: 6326125272112005850}
   DebufSkillProgres: {fileID: 1812308348772414579}
+  SkillsTray: {fileID: 2330055298899342455}
+  SkillPrefab: {fileID: 2196285340524500113, guid: a51bbfb5c2d4b3249a7c04afe1ffc9d4, type: 3}
+  SkillIcons:
+  - {fileID: 21300000, guid: 3464e30feb8be2644878b6988f9dd125, type: 3}
+  - {fileID: 21300000, guid: 1b054dce396cd1d4487ffbf132e7f667, type: 3}
+  - {fileID: 21300000, guid: cae3c5626c34c8c44a2edb6855092393, type: 3}
+  - {fileID: 21300000, guid: 9d97f9db934bf4e4c929e1229ce8250d, type: 3}
+  - {fileID: 21300000, guid: a50b81a5d07d5e64191fdae7486a991e, type: 3}
+  - {fileID: 21300000, guid: b2fddbd718676954aa53d578c916d49b, type: 3}
+  - {fileID: 21300000, guid: a7b4e11058b6bb54e90494478c9bada1, type: 3}
+  - {fileID: 21300000, guid: 766aeeea33dc3174086cb3492bf9842d, type: 3}
+  - {fileID: 21300000, guid: b2fc55b533d0e3d4cb3d45a41f8ea2f2, type: 3}
+  - {fileID: 21300000, guid: 517563cdd7cff3e4faef5eedbec6aca0, type: 3}
+  - {fileID: 21300000, guid: 6dc94e189e8b07448bc9043c24ff8e42, type: 3}
+  - {fileID: 21300000, guid: ad0a9868a86677144832734d3ca1b1f2, type: 3}
