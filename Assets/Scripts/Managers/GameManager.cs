@@ -6,6 +6,9 @@ public class GameManager : Manager<GameManager>
     [HideInInspector]
     public DeckController DeckController = new();
 
+    [HideInInspector]
+    public int round = 0;
+
     public void SetPlayerSuitTo0() 
     {
         DeckController.SetPlayerSuit((Suit)0);
@@ -28,12 +31,14 @@ public class GameManager : Manager<GameManager>
 
     public void StartGame() 
     {
-        SceneManager.LoadScene("Training Scene");
+        round = 0;
+        SceneManager.LoadScene("Training Scene");   
     }
 
     public void NewGame()
     {
         DeckController.Instance.Reset();
+        round++;
         SceneManager.LoadScene("Start Scene");
     }
 }

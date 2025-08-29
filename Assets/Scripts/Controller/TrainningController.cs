@@ -75,60 +75,60 @@ public class TrainningController
         allSkills.Add(new Other_DebuffEffect_HighSkill_Model(6, SkillType.Debuff, SkillActivationType.Effect, 11));
     }
 
-    public void AddAPlayerCardLowBuffSkill() 
+    public List<CardModel> AddAPlayerCardLowBuffSkill() 
     {
         Random rng = new();
         int index = rng.Next(0,2);
-        allSkills[index].Setup();
+        return allSkills[index].Setup();
     }
 
-    public void AddACardLowBuffSkill()
+    public List<CardModel> AddACardLowBuffSkill()
     {
         Random rng = new();
         int index = rng.Next(3, 5);
-        allSkills[index].Setup();
+        return allSkills[index].Setup();
     }
 
-    public void AddAPlayerCardHighBuffSkill()
+    public List<CardModel> AddAPlayerCardHighBuffSkill()
     {
         Random rng = new();
         int index = rng.Next(6, 8);
-        allSkills[index].Setup();
+        return allSkills[index].Setup();
     }
 
-    public void AddACardHighBuffSkill()
+    public List<CardModel> AddACardHighBuffSkill()
     {
         Random rng = new();
         int index = rng.Next(9, 11);
-        allSkills[index].Setup();
+        return allSkills[index].Setup();
     }
 
-    public void AddAPlayerCardLowDebuffSkill()
+    public List<CardModel> AddAPlayerCardLowDebuffSkill()
     {
         Random rng = new();
         int index = rng.Next(12, 14);
-        allSkills[index].Setup();
+        return allSkills[index].Setup();
     }
 
-    public void AddACardLowDebuffSkill()
+    public List<CardModel> AddACardLowDebuffSkill()
     {
         Random rng = new();
         int index = rng.Next(15, 17);
-        allSkills[index].Setup();
+        return allSkills[index].Setup();
     }
 
-    public void AddAPlayerCardHighDebuffSkill()
+    public List<CardModel> AddAPlayerCardHighDebuffSkill()
     {
         Random rng = new();
         int index = rng.Next(18, 20);
-        allSkills[index].Setup();
+        return allSkills[index].Setup();
     }
 
-    public void AddACardHighDebuffSkill()
+    public List<CardModel> AddACardHighDebuffSkill()
     {
         Random rng = new();
         int index = rng.Next(21, 23);
-        allSkills[index].Setup();
+        return allSkills[index].Setup();
     }
 
     public void SetATrainingModel(TrainingModel model, int slot) 
@@ -141,106 +141,94 @@ public class TrainningController
         currentModules[slot].Action();
     }
 
-    public void PlayerBuff(int option) 
+    public List<CardModel> PlayerBuff(int option) 
     {
         if (option >= 0 && option <= 3) 
         {
             switch (option) 
             {
                 case 0:
-                    allModules[0].Action();
-                    break;
+                    return allModules[0].Action();
                 case 1:
-                    allModules[1].Action(); 
-                    break;
+                    return allModules[1].Action(); 
                 case 2:
-                    allModules[2].Action();
-                    break;
+                    return allModules[2].Action();
                 case 3:
-                    allModules[3].Action();
-                    break;
+                    return allModules[3].Action();
             }
         }
+        return null;
     }
 
-    public void OtherBuff(int option)
+    public List<CardModel> OtherBuff(int option)
     {
         if (option >= 0 && option <= 3)
         {
             switch (option)
             {
                 case 0:
-                    allModules[4].Action();
-                    break;
+                    return allModules[4].Action();
                 case 1:
-                    allModules[5].Action();
-                    break;
+                    return allModules[5].Action();
                 case 2:
-                    allModules[6].Action();
-                    break;
+                    return allModules[6].Action();
                 case 3:
-                    allModules[7].Action();
-                    break;
+                    return allModules[7].Action();
             }
         }
+        return null;
     }
 
-    public void OtherDebuff(int option)
+    public List<CardModel> OtherDebuff(int option)
     {
         if (option >= 0 && option <= 3)
         {
             switch (option)
             {
                 case 0:
-                    allModules[8].Action();
-                    break;
+                    return allModules[8].Action();
                 case 1:
-                    allModules[9].Action();
-                    break;
+                    return allModules[9].Action();
                 case 2:
-                    allModules[10].Action();
-                    break;
+                    return allModules[10].Action();
                 case 3:
-                    allModules[11].Action();
-                    break;
+                    return allModules[11].Action();
             }
         }
+        return null;
     }
 
-    public void PlayerDebuff(int option)
+    public List<CardModel> PlayerDebuff(int option)
     {
         if (option >= 0 && option <= 3)
         {
             switch (option)
             {
                 case 0:
-                    allModules[12].Action();
-                    break;
+                    return allModules[12].Action();
                 case 1:
-                    allModules[13].Action();
-                    break;
+                    return allModules[13].Action();
                 case 2:
-                    allModules[14].Action();
-                    break;
+                    return allModules[14].Action();
                 case 3:
-                    allModules[15].Action();
-                    break;
+                    return allModules[15].Action();
             }
         }
+        return null;
     }
 
-    public void ConvertToPlayer() 
+    public List<CardModel> ConvertToPlayer() 
     {
-        allModules[16].Action();
+        return allModules[16].Action();
     }
 
-    public void ConvertToOther() 
+    public List<CardModel> ConvertToOther() 
     {
-        allModules[17].Action();
+        return allModules[17].Action();
     }
 
-    public void Swap() 
+    public List<CardModel> Swap() 
     {
-        allModules[18].Action();
+        return allModules[18].Action();
     }
 }

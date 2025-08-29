@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public abstract class TrainingModel
 {
     private static int _nextId = 0;   
@@ -8,5 +10,5 @@ public abstract class TrainingModel
         Id = _nextId++;
     }
 
-    public abstract void Action();
+    public abstract List<CardModel> Action();
 }

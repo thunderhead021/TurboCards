@@ -46,18 +46,16 @@ public class TextRTE_View : RTE_View
         {
             if (playerInput.text.Trim() == promptText.text)
             {
-                TrainingManager.Instance.QTAResult(true, trainingType, difficulty);
                 playerInput.interactable = false;
-                Destroy(gameObject);
+                SendResult(true);
                 yield break;
             }
             yield return new WaitForSeconds(0.1f);
             currentTime -= 0.1f;
             timer.value = currentTime;
         }
-        TrainingManager.Instance.QTAResult(false, trainingType, difficulty);
         timer.value = 0f;
 
-        Destroy(gameObject);
+        SendResult(false);
     }
 }

@@ -1,12 +1,12 @@
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TrainingUIView : MonoBehaviour
 {
-    public TextMeshProUGUI RemainTurnText;
+    public Slider RemainTurn;
 
     public void UpdateRemainTurn(int turn) 
     {
-        RemainTurnText.text = turn.ToString();
+        RemainTurn.value = turn;
     }
 }

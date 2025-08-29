@@ -50,9 +50,6 @@ public class ClockRTE_View : RTE_View
             if (handAngle >= successZoneStart || handAngle <= wrappedEnd)
                 success = true;
         }
-
-        TrainingManager.Instance.QTAResult(success, trainingType, difficulty);
-
-        Destroy(gameObject);
+        SendResult(success);
     }
 }

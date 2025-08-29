@@ -113,18 +113,18 @@ public class RaceManager : Manager<RaceManager>
         }
         else 
         {
-            Debug.Log(card.GetSuit().ToString() + " moved to " + raceController.GetUnitPostion(card.GetSuit()));   
+            Debug.Log(card.GetSuit().ToString() + " moved to " + raceController.GetUnitPostion(card.GetSuit()));
+            raceView.UpdateMiddlePart(raceController.GetRaceTrack());
+            raceView.MoveUnit(card.GetSuit(), raceController.GetUnitPostion(card.GetSuit()));
+            int cameraPos = raceController.GetTheHighestCurrentPos() - 3;
+            if (cameraPos > 0)
+            {
+                raceView.MovingTrackView(cameraPos);
+            }
+
+            raceView.UpdateUnitEffects();
+
+            StartCoroutine(RemoveCardCoroutine(cardView.gameObject));
         }
-
-        raceView.MoveUnit(card.GetSuit(), raceController.GetUnitPostion(card.GetSuit()));
-        int cameraPos = raceController.GetTheHighestCurrentPos() - 3;
-        if (cameraPos > 0) 
-        {
-            raceView.MovingTrackView(cameraPos);
-        }
-
-        raceView.UpdateUnitEffects();
-
-        StartCoroutine(RemoveCardCoroutine(cardView.gameObject));
     }
 }

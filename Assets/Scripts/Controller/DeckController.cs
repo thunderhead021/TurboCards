@@ -125,7 +125,7 @@ public class DeckController
     {
         CardModel result = null;
         Random rng = new();
-        CardModel[] suit = ReadOnlyDeck.Where(x => x.GetSuit() != PlayerSuit && x.GetCurrentSkillTrainingReqiredTurns() != 0).ToArray();
+        CardModel[] suit = ReadOnlyDeck.Where(x => x.GetSuit() != PlayerSuit && x.GetCurrentSkillTrainingReqiredTurns() == 0).ToArray();
         if (suit.Length > 0)
         {
             result = suit[rng.Next(suit.Length)];
@@ -138,7 +138,7 @@ public class DeckController
     {
         CardModel result = null;
         Random rng = new();
-        var suit = ReadOnlyDeck.Where(x => x.GetSuit() == PlayerSuit && x.GetCurrentSkillTrainingReqiredTurns() != 0 ).ToArray();
+        var suit = ReadOnlyDeck.Where(x => x.GetSuit() == PlayerSuit && x.GetCurrentSkillTrainingReqiredTurns() == 0 ).ToArray();
         if (suit.Length > 0)
         {
             result = suit[rng.Next(suit.Length)];

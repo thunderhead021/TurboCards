@@ -80,8 +80,7 @@ public class SliderRTE_View : RTE_View
         {
             Debug.Log("RTE Complete!");
             isRunning = false;
-            TrainingManager.Instance.QTAResult(true, trainingType, difficulty);
-            Destroy(gameObject);
+            SendResult(true);
             return;
         }
 
@@ -96,8 +95,7 @@ public class SliderRTE_View : RTE_View
         {
             Debug.Log("Failed! Missed inputs.");
             isRunning = false;
-            TrainingManager.Instance.QTAResult(false, trainingType, difficulty);
-            Destroy(gameObject);
+            SendResult(false);
         }
         else 
         {

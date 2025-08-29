@@ -42,9 +42,8 @@ public class PopRTE_View : RTE_View
         Timer.value -= Time.deltaTime;
         if (Timer.value <= 0f)
         {
-            TrainingManager.Instance.QTAResult(false, trainingType, difficulty);
             isRunning = false;
-            Destroy(gameObject);
+            SendResult(false);
         }
     }
 
@@ -55,9 +54,8 @@ public class PopRTE_View : RTE_View
 
         if (balloons.Count == 0)
         {
-            TrainingManager.Instance.QTAResult(true, trainingType, difficulty);
             isRunning = false;
-            Destroy(gameObject);
+            SendResult(true);
         }
     }
 }

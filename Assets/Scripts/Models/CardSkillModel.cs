@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public abstract class CardSkillModel
 {
     public int TrainingReqiredTurns = -1;
@@ -18,7 +20,7 @@ public abstract class CardSkillModel
         ID = id;    
     }
 
-    public abstract void Setup();
+    public abstract List<CardModel> Setup();
 
     public abstract void TrapAction(int currentPosition, out int effectPostion, out int modifierValue, Suit? suit = null);
 

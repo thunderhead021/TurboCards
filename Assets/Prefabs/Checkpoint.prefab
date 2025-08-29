@@ -90,6 +90,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPointPos: {x: 0, y: 0}
+  Effect: {fileID: 9189514112049059002}
+  Buff: {fileID: 21300000, guid: 7fef18cea3d653a40b19aec284f93a6f, type: 3}
+  Debuff: {fileID: 21300000, guid: 4d3788cb3cd33d6428f6b8cf81743cb3, type: 3}
 --- !u!1 &7301676096693443351
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class Player_BuffTrap_LowSkill_Model : CardSkillModel
 {
     public Player_BuffTrap_LowSkill_Model(int trainingReqiredTurns, SkillType skillType, SkillActivationType skillActivationType, int id) : base(trainingReqiredTurns, skillType, skillActivationType, id)
@@ -11,11 +13,12 @@ public class Player_BuffTrap_LowSkill_Model : CardSkillModel
         modifierValue = 1;
     }
 
-    public override void Setup()
+    public override List<CardModel> Setup()
     {
         CardModel card = DeckController.Instance.GetARandomNotLearningCardFromPlayerSuit();
         card.LearnASkill(this);
         DeckController.Instance.UpdateCard(card);
+        return new List<CardModel>() { card };
     }
 
     public override void ActiveAction(out int modifierValue, Suit? suit = null)
@@ -43,11 +46,12 @@ public class Other_BuffTrap_LowSkill_Model : CardSkillModel
         modifierValue = 1;
     }
 
-    public override void Setup()
+    public override List<CardModel> Setup()
     {
         CardModel card = DeckController.Instance.GetARandomNotLearningCardExclude();
         card.LearnASkill(this);
         DeckController.Instance.UpdateCard(card);
+        return new List<CardModel>() { card };
     }
 
     public override void ActiveAction(out int modifierValue, Suit? suit = null)
@@ -78,11 +82,12 @@ public class Player_BuffTrap_HighSkill_Model : CardSkillModel
         throw new System.NotImplementedException();
     }
 
-    public override void Setup()
+    public override List<CardModel> Setup()
     {
         CardModel card = DeckController.Instance.GetARandomNotLearningCardFromPlayerSuit();
         card.LearnASkill(this);
         DeckController.Instance.UpdateCard(card);
+        return new List<CardModel>() { card };
     }
 
     public override void TrapAction(int currentPosition, out int effectPostion, out int modifierValue, Suit? suit = null)
@@ -109,11 +114,12 @@ public class Other_BuffTrap_HighSkill_Model : CardSkillModel
         throw new System.NotImplementedException();
     }
 
-    public override void Setup()
+    public override List<CardModel> Setup()
     {
         CardModel card = DeckController.Instance.GetARandomNotLearningCardExclude();
         card.LearnASkill(this);
         DeckController.Instance.UpdateCard(card);
+        return new List<CardModel>() { card };
     }
 
     public override void TrapAction(int currentPosition, out int effectPostion, out int modifierValue, Suit? suit = null)

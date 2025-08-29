@@ -61,14 +61,12 @@ public class BalanceBeamRTE_View : RTE_View
         timer.value -= dt;
         if (Mathf.Abs(angle) >= maxAngle)
         {
-            TrainingManager.Instance.QTAResult(false, trainingType, difficulty);
-            Destroy(gameObject);
+            SendResult(false);
         }
 
         if (timer.value <= 0f)
         {
-            TrainingManager.Instance.QTAResult(true, trainingType, difficulty);
-            Destroy(gameObject);
+            SendResult(true);
         }
     }
 

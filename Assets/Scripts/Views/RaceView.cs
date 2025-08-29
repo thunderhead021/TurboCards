@@ -38,6 +38,25 @@ public class RaceView : MonoBehaviour
         }
     }
 
+    public void UpdateMiddlePart(int[][] RaceTrack) 
+    {
+        int rows = RaceTrack.GetLength(0);
+        int cols = RaceTrack.GetLength(1);
+        int[][] middlePart = new int[rows][];
+        for (int i = 0; i < rows; i++) 
+        {
+            middlePart[i] = new int[cols - 2];
+        }
+        for (int r = 0; r < rows; r++)
+        {
+            for (int c = 1; c < cols - 1; c++)
+            {
+                middlePart[r][c - 1] = RaceTrack[r][c];
+            }
+        }
+        RaceMiddlePart.UpdateParts(middlePart);
+    }
+
     public void MoveUnit(Suit suit, int position) 
     {
         switch (suit)

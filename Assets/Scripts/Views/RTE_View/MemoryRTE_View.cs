@@ -70,14 +70,12 @@ public class MemoryRTE_View : RTE_View
             playerIndex++;
             if (playerIndex >= sequence.Count)
             {
-                TrainingManager.Instance.QTAResult(true, trainingType, difficulty);
-                Destroy(gameObject);
+                SendResult(true);
             }
         }
         else
         {
-            TrainingManager.Instance.QTAResult(false, trainingType, difficulty);
-            Destroy(gameObject);
+            SendResult(false);
         }
     }
 }

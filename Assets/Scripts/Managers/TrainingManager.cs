@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,54 +19,76 @@ public class TrainingManager : Manager<TrainingManager>
 
     public List<Activity_View> Activities;
 
+    public Transform CardModifedTray;
+
+    public CardView cardPrefab;
+
+    [HideInInspector]
+    public List<Activity_View> Active_Activities = new();
+
     public int minDifficulty = 0;
 
-    public void StartAnActivity(int difficult, TrainingType trainingType) 
+    public void StartAnActivity(int difficult, TrainingType trainingType)
     {
         GameObject canvas = GameObject.FindGameObjectWithTag("Playmat");
         RTE_View rTE_View = Instantiate(RTAEvents[Random.Range(0, RTAEvents.Count)], canvas.transform);
         rTE_View.Setup(difficult, trainingType);
     }
 
-    public void DecreaseValue() 
-    {
-        
-        UpDateTrainingAmount();
-    }
-
-    public void LearnABuffSkillValue()
-    {
-        trainningController.AddAPlayerCardLowBuffSkill();
-        trainningController.AddACardLowBuffSkill();
-        UpDateTrainingAmount();
-    }
-
-    public void ResetTrainingAmount() 
+    public void ResetTrainingAmount()
     {
         TrainingAmount = 5;
         uIView.UpdateRemainTurn(TrainingAmount);
+        Active_Activities.Clear();
+        switch (DeckController.Instance.GetPlayerSuit())
+        {
+            //normal 
+            case (Suit)0:
+                Active_Activities.Add(Activities[0]);
+                Active_Activities.Add(Activities[1]);
+                Active_Activities.Add(Activities[4]);
+                break;
+            //hardworking 
+            case (Suit)1:
+                Active_Activities.Add(Activities[0]);
+                Active_Activities.Add(Activities[2]);
+                Active_Activities.Add(Activities[3]);
+                break;
+            //caring
+            case (Suit)2:
+                Active_Activities.Add(Activities[0]);
+                Active_Activities.Add(Activities[2]);
+                Active_Activities.Add(Activities[4]);
+                break;
+            //prankster 
+            case (Suit)3:
+                Active_Activities.Add(Activities[1]);
+                Active_Activities.Add(Activities[3]);
+                Active_Activities.Add(Activities[4]);
+                break;
+        }
         ShuffleActivities();
     }
 
-    public void ShuffleActivities() 
+    public void ShuffleActivities()
     {
-        for (int i = Activities.Count - 1; i > 0; i--)
+        for (int i = Active_Activities.Count - 1; i > 0; i--)
         {
             int j = Random.Range(0, i + 1);
-            (Activities[i], Activities[j]) = (Activities[j], Activities[i]);
+            (Active_Activities[i], Active_Activities[j]) = (Active_Activities[j], Active_Activities[i]);
         }
-        for (int i = 0; i < Activities.Count; i++)
+        for (int i = 0; i < Active_Activities.Count; i++)
         {
-            Activities[i].SetDifficulty(minDifficulty + i);
+            Active_Activities[i].SetDifficulty(minDifficulty + i);
         }
     }
 
-    private void UpDateTrainingAmount() 
+    private void UpDateTrainingAmount()
     {
         TrainingAmount--;
         ShuffleActivities();
         uIView.UpdateRemainTurn(TrainingAmount);
-        foreach (var card in DeckController.Instance.ReadOnlyDeck) 
+        foreach (var card in DeckController.Instance.ReadOnlyDeck)
         {
             card.LearningSkill();
         }
@@ -73,37 +96,39 @@ public class TrainingManager : Manager<TrainingManager>
         if (TrainingAmount <= 0)
         {
             SceneManager.LoadScene("Run Scene");
+            RaceManager.Instance.CreateRaceTrack(70 + (GameManager.Instance.round + 1) * 10);
         }
     }
 
-    public void QTAResult(bool isSucess, TrainingType trainingType, int difficulty) 
+    public void QTAResult(bool isSucess, TrainingType trainingType, int difficulty)
     {
-        switch (trainingType) 
+        List<CardModel> result = new();
+        switch (trainingType)
         {
             case TrainingType.Buff:
                 if (isSucess)
                 {
-                    trainningController.PlayerBuff(difficulty);
-                    trainningController.OtherBuff(0);
+                    result.AddRange(trainningController.PlayerBuff(difficulty));
+                    result.AddRange(trainningController.OtherBuff(0));
                     if (difficulty != 3)
-                        trainningController.OtherBuff(0);
+                        result.AddRange(trainningController.OtherBuff(0));
                     if (difficulty == 2)
-                        trainningController.OtherBuff(0);
+                        result.AddRange(trainningController.OtherBuff(0));
                 }
-                else 
+                else
                 {
-                    switch (difficulty) 
+                    switch (difficulty)
                     {
                         case 1:
-                            trainningController.OtherBuff(0);
-                            trainningController.OtherBuff(0);
-                            trainningController.OtherBuff(0);
-                            trainningController.OtherBuff(0);
+                            result.AddRange(trainningController.OtherBuff(0));
+                            result.AddRange(trainningController.OtherBuff(0));
+                            result.AddRange(trainningController.OtherBuff(0));
+                            result.AddRange(trainningController.OtherBuff(0));
                             break;
                         default:
-                            trainningController.OtherBuff(difficulty);
-                            trainningController.OtherBuff(difficulty);
-                            trainningController.OtherBuff(difficulty);
+                            result.AddRange(trainningController.OtherBuff(difficulty));
+                            result.AddRange(trainningController.OtherBuff(difficulty));
+                            result.AddRange(trainningController.OtherBuff(difficulty));
                             break;
                     }
                 }
@@ -111,21 +136,21 @@ public class TrainingManager : Manager<TrainingManager>
             case TrainingType.Debuff:
                 if (isSucess)
                 {
-                    trainningController.OtherDebuff(difficulty);
-                    trainningController.OtherDebuff(difficulty);
+                    result.AddRange(trainningController.OtherDebuff(difficulty));
+                    result.AddRange(trainningController.OtherDebuff(difficulty));
                 }
-                else 
+                else
                 {
-                    switch (difficulty) 
+                    switch (difficulty)
                     {
                         case 0:
                         case 1:
-                            trainningController.PlayerDebuff(difficulty);
+                            result.AddRange(trainningController.PlayerDebuff(difficulty));
                             break;
                         case 2:
                         case 3:
-                            trainningController.PlayerDebuff(difficulty);
-                            trainningController.PlayerDebuff(difficulty);
+                            result.AddRange(trainningController.PlayerDebuff(difficulty));
+                            result.AddRange(trainningController.PlayerDebuff(difficulty));
                             break;
                     }
                 }
@@ -133,49 +158,49 @@ public class TrainingManager : Manager<TrainingManager>
             case TrainingType.BufSkill:
                 if (isSucess)
                 {
-                    switch (difficulty) 
+                    switch (difficulty)
                     {
                         case 0:
-                            trainningController.AddAPlayerCardLowBuffSkill();
-                            trainningController.AddACardLowBuffSkill();
+                            result.AddRange(trainningController.AddAPlayerCardLowBuffSkill());
+                            result.AddRange(trainningController.AddACardLowBuffSkill());
                             break;
                         case 1:
-                            trainningController.AddAPlayerCardLowBuffSkill();
-                            trainningController.AddAPlayerCardLowBuffSkill();
-                            trainningController.AddACardLowBuffSkill();
+                            result.AddRange(trainningController.AddAPlayerCardLowBuffSkill());
+                            result.AddRange(trainningController.AddAPlayerCardLowBuffSkill());
+                            result.AddRange(trainningController.AddACardLowBuffSkill());
                             break;
                         case 2:
-                            trainningController.AddAPlayerCardHighBuffSkill();
-                            trainningController.AddACardHighBuffSkill();
+                            result.AddRange(trainningController.AddAPlayerCardHighBuffSkill());
+                            result.AddRange(trainningController.AddACardHighBuffSkill());
                             break;
                         case 3:
-                            trainningController.AddAPlayerCardHighBuffSkill();
-                            trainningController.AddAPlayerCardHighBuffSkill();
-                            trainningController.AddACardHighBuffSkill();
+                            result.AddRange(trainningController.AddAPlayerCardHighBuffSkill());
+                            result.AddRange(trainningController.AddAPlayerCardHighBuffSkill());
+                            result.AddRange(trainningController.AddACardHighBuffSkill());
                             break;
                     }
                 }
-                else 
+                else
                 {
                     switch (difficulty)
                     {
                         case 0:
-                            trainningController.AddACardLowBuffSkill();
-                            trainningController.AddACardLowBuffSkill();
+                            result.AddRange(trainningController.AddACardLowBuffSkill());
+                            result.AddRange(trainningController.AddACardLowBuffSkill());
                             break;
                         case 1:
-                            trainningController.AddACardLowBuffSkill();
-                            trainningController.AddACardLowBuffSkill();
-                            trainningController.AddACardLowBuffSkill();
+                            result.AddRange(trainningController.AddACardLowBuffSkill());
+                            result.AddRange(trainningController.AddACardLowBuffSkill());
+                            result.AddRange(trainningController.AddACardLowBuffSkill());
                             break;
                         case 2:
-                            trainningController.AddACardHighBuffSkill();
-                            trainningController.AddACardHighBuffSkill();
+                            result.AddRange(trainningController.AddACardHighBuffSkill());
+                            result.AddRange(trainningController.AddACardHighBuffSkill());
                             break;
                         case 3:
-                            trainningController.AddACardHighBuffSkill();
-                            trainningController.AddACardHighBuffSkill();
-                            trainningController.AddACardHighBuffSkill();
+                            result.AddRange(trainningController.AddACardHighBuffSkill());
+                            result.AddRange(trainningController.AddACardHighBuffSkill());
+                            result.AddRange(trainningController.AddACardHighBuffSkill());
                             break;
                     }
                 }
@@ -186,22 +211,22 @@ public class TrainingManager : Manager<TrainingManager>
                     switch (difficulty)
                     {
                         case 0:
-                            trainningController.AddAPlayerCardLowDebuffSkill();
-                            trainningController.AddACardLowDebuffSkill();
+                            result.AddRange(trainningController.AddAPlayerCardLowDebuffSkill());
+                            result.AddRange(trainningController.AddACardLowDebuffSkill());
                             break;
                         case 1:
-                            trainningController.AddAPlayerCardLowDebuffSkill();
-                            trainningController.AddAPlayerCardLowDebuffSkill();
-                            trainningController.AddACardLowDebuffSkill();
+                            result.AddRange(trainningController.AddAPlayerCardLowDebuffSkill());
+                            result.AddRange(trainningController.AddAPlayerCardLowDebuffSkill());
+                            result.AddRange(trainningController.AddACardLowDebuffSkill());
                             break;
                         case 2:
-                            trainningController.AddAPlayerCardHighDebuffSkill();
-                            trainningController.AddACardHighDebuffSkill();
+                            result.AddRange(trainningController.AddAPlayerCardHighDebuffSkill());
+                            result.AddRange(trainningController.AddACardHighDebuffSkill());
                             break;
                         case 3:
-                            trainningController.AddAPlayerCardHighDebuffSkill();
-                            trainningController.AddAPlayerCardHighDebuffSkill();
-                            trainningController.AddACardHighDebuffSkill();
+                            result.AddRange(trainningController.AddAPlayerCardHighDebuffSkill());
+                            result.AddRange(trainningController.AddAPlayerCardHighDebuffSkill());
+                            result.AddRange(trainningController.AddACardHighDebuffSkill());
                             break;
                     }
                 }
@@ -210,71 +235,97 @@ public class TrainingManager : Manager<TrainingManager>
                     switch (difficulty)
                     {
                         case 0:
-                            trainningController.AddACardLowDebuffSkill();
-                            trainningController.AddACardLowDebuffSkill();
+                            result.AddRange(trainningController.AddACardLowDebuffSkill());
+                            result.AddRange(trainningController.AddACardLowDebuffSkill());
                             break;
                         case 1:
-                            trainningController.AddACardLowDebuffSkill();
-                            trainningController.AddACardLowDebuffSkill();
-                            trainningController.AddACardLowDebuffSkill();
+                            result.AddRange(trainningController.AddACardLowDebuffSkill());
+                            result.AddRange(trainningController.AddACardLowDebuffSkill());
+                            result.AddRange(trainningController.AddACardLowDebuffSkill());
                             break;
                         case 2:
-                            trainningController.AddACardHighDebuffSkill();
-                            trainningController.AddACardHighDebuffSkill();
+                            result.AddRange(trainningController.AddACardHighDebuffSkill());
+                            result.AddRange(trainningController.AddACardHighDebuffSkill());
                             break;
                         case 3:
-                            trainningController.AddACardHighDebuffSkill();
-                            trainningController.AddACardHighDebuffSkill();
-                            trainningController.AddACardHighDebuffSkill();
+                            result.AddRange(trainningController.AddACardHighDebuffSkill());
+                            result.AddRange(trainningController.AddACardHighDebuffSkill());
+                            result.AddRange(trainningController.AddACardHighDebuffSkill());
                             break;
                     }
                 }
                 break;
             case TrainingType.ConvertSuit:
-                if (isSucess) 
+                if (isSucess)
                 {
-                    switch (difficulty) 
+                    switch (difficulty)
                     {
                         case 0:
-                            trainningController.Swap();
+                            result.AddRange(trainningController.Swap());
                             break;
                         case 1:
-                            trainningController.Swap();
-                            trainningController.Swap();
+                            result.AddRange(trainningController.Swap());
+                            result.AddRange(trainningController.Swap());
                             break;
                         case 2:
-                            trainningController.ConvertToPlayer();
+                            result.AddRange(trainningController.ConvertToPlayer());
                             break;
                         case 3:
-                            trainningController.ConvertToPlayer();
-                            trainningController.ConvertToPlayer();
+                            result.AddRange(trainningController.ConvertToPlayer());
+                            result.AddRange(trainningController.ConvertToPlayer());
                             break;
                     }
                 }
-                else 
+                else
                 {
                     switch (difficulty)
                     {
                         case 1:
                         case 2:
-                            trainningController.ConvertToOther();
+                            result.AddRange(trainningController.ConvertToOther());
                             break;
                         case 3:
-                            trainningController.ConvertToOther();
-                            trainningController.ConvertToOther();
+                            result.AddRange(trainningController.ConvertToOther());
+                            result.AddRange(trainningController.ConvertToOther());
                             break;
                     }
                 }
                 break;
         }
+        StartCoroutine(ShowCardCoroutine(result));
         UpDateTrainingAmount();
         GameObject deck = GameObject.FindGameObjectWithTag("Deck");
-        if (deck != null) 
+        if (deck != null)
         {
             deck.GetComponent<DeckView>().ShowDeck();
         }
     }
+
+    private IEnumerator ShowCardCoroutine(List<CardModel> cards)
+    {
+        List<GameObject> cardGOs = new();
+        DeckView deck = GameObject.FindGameObjectWithTag("Deck").GetComponent<DeckView>();
+        CardModifedTray.gameObject.SetActive(true);
+        foreach (var card in cards) 
+        {
+            var cardGO = Instantiate(cardPrefab, CardModifedTray);
+            cardGO.Setup(deck.GetCardSprite(card), card);
+            cardGOs.Add(cardGO.gameObject);
+        }
+        float elapsed = 0f;
+        while (elapsed < 2f)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        for (int i = 0; i < cardGOs.Count; i++) 
+        {
+            Destroy(cardGOs[i]);
+        }
+        CardModifedTray.gameObject.SetActive(false);
+    }
 }
+
 
 public enum TrainingType 
 {

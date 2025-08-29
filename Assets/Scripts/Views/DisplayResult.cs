@@ -18,10 +18,6 @@ public class DisplayResult : MonoBehaviour
     private IEnumerator StartAnimationCoroutine()
     {
         int max = 5;
-        if (IsForWin)
-        {
-            max = 10;
-        }
         for (int i = 0; i < max; i++)
         {
             if (IsForWin)

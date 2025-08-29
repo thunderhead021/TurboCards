@@ -14,6 +14,8 @@ public class RaceController
 
     public int[][] GetSuitBuff() => SuitBuff;
 
+    public int[][] GetRaceTrack() => RaceTrack;
+
     public RaceController() 
     {
         ResetRace();
