@@ -15,7 +15,12 @@ public class Tooltip_View : MonoBehaviour
         int headerLength = HeaderField.text.Length;
         int contentLength = ContentField.text.Length;
 
-        LayoutElement.enabled = (headerLength > characterWrapLimit ||  contentLength > characterWrapLimit) ? true : false;
+        LayoutElement.enabled = (headerLength > characterWrapLimit ||  contentLength > characterWrapLimit);
     }
 
+    public void SetText(string header, string content) 
+    {
+        HeaderField.text = header;
+        ContentField.text = content;
+    }
 }

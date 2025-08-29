@@ -2,15 +2,19 @@ using UnityEngine;
 
 public class Tooltip : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public string HeaderText = "";
+    public string TooltipText = "";
+
+
+    public void MouseOver() 
     {
-        
+        TooltipManager.Instance.SetText(HeaderText, TooltipText);
+        TooltipManager.Instance.Show();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void MouseOut() 
     {
-        
-    }
+        TooltipManager.Instance.SetText("", "");
+        TooltipManager.Instance.Hide();
+    }  
 }

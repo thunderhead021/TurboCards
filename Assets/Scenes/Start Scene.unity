@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &67329843
 RectTransform:
   m_ObjectHideFlags: 0
@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 41, y: 232.26086}
+  m_AnchoredPosition: {x: -166, y: 50}
   m_SizeDelta: {x: 160.98, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &67329844
@@ -176,9 +176,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -791,6 +791,7 @@ GameObject:
   - component: {fileID: 291837805}
   - component: {fileID: 291837804}
   - component: {fileID: 291837807}
+  - component: {fileID: 291837808}
   m_Layer: 5
   m_Name: Char 3
   m_TagString: Untagged
@@ -938,6 +939,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc58d29ec4fa444bab72dc66eeb5329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HeaderText: Amara Heartly
+  TooltipText: 
+--- !u!114 &291837808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291837802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 291837807}
+          m_TargetAssemblyTypeName: Tooltip, Assembly-CSharp
+          m_MethodName: MouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 291837807}
+          m_TargetAssemblyTypeName: Tooltip, Assembly-CSharp
+          m_MethodName: MouseOut
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &380047357
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,6 +999,7 @@ GameObject:
   - component: {fileID: 380047360}
   - component: {fileID: 380047359}
   - component: {fileID: 380047362}
+  - component: {fileID: 380047363}
   m_Layer: 5
   m_Name: Char 2
   m_TagString: Untagged
@@ -1098,6 +1147,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc58d29ec4fa444bab72dc66eeb5329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HeaderText: Grandon Steele
+  TooltipText: 
+--- !u!114 &380047363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380047357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 380047362}
+          m_TargetAssemblyTypeName: Tooltip, Assembly-CSharp
+          m_MethodName: MouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 380047362}
+          m_TargetAssemblyTypeName: Tooltip, Assembly-CSharp
+          m_MethodName: MouseOut
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &421961799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,7 +1438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &571149015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2422,6 +2518,7 @@ GameObject:
   - component: {fileID: 1430052900}
   - component: {fileID: 1430052899}
   - component: {fileID: 1430052902}
+  - component: {fileID: 1430052903}
   m_Layer: 5
   m_Name: Char 1
   m_TagString: Untagged
@@ -2569,6 +2666,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc58d29ec4fa444bab72dc66eeb5329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HeaderText: Norma Lise
+  TooltipText: 
+--- !u!114 &1430052903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430052897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1430052902}
+          m_TargetAssemblyTypeName: Tooltip, Assembly-CSharp
+          m_MethodName: MouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1430052902}
+          m_TargetAssemblyTypeName: Tooltip, Assembly-CSharp
+          m_MethodName: MouseOut
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1789424917
 GameObject:
   m_ObjectHideFlags: 0
@@ -2793,6 +2937,7 @@ GameObject:
   - component: {fileID: 2013899554}
   - component: {fileID: 2013899553}
   - component: {fileID: 2013899556}
+  - component: {fileID: 2013899557}
   m_Layer: 5
   m_Name: Char 4
   m_TagString: Untagged
@@ -2940,6 +3085,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc58d29ec4fa444bab72dc66eeb5329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HeaderText: Jessica Tricks
+  TooltipText: 
+--- !u!114 &2013899557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013899551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2013899556}
+          m_TargetAssemblyTypeName: Tooltip, Assembly-CSharp
+          m_MethodName: MouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2013899556}
+          m_TargetAssemblyTypeName: Tooltip, Assembly-CSharp
+          m_MethodName: MouseOut
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2041156811
 GameObject:
   m_ObjectHideFlags: 0
