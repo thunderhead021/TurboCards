@@ -20,7 +20,7 @@ public class Activity_View : MonoBehaviour
         switch (DeckController.Instance.GetPlayerSuit()) 
         { 
             //normal 
-            case (Suit)0:
+            case (Suit)2:
                 if (trainingType == TrainingType.BufSkill || trainingType == TrainingType.DebuffSkill)
                     gameObject.SetActive(false);
                 break;
@@ -31,7 +31,7 @@ public class Activity_View : MonoBehaviour
                     gameObject.SetActive(false);
                 break;
             //caring
-            case (Suit)2:
+            case (Suit)0:
                 if (trainingType == TrainingType.Debuff || trainingType == TrainingType.DebuffSkill)
                     gameObject.SetActive(false);
                 break;

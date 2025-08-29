@@ -850,9 +850,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 2e7bea3bf3136d64cb3fb7b50253796d, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 14faa60670a1e5642b124654dbc9c80f, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 14faa60670a1e5642b124654dbc9c80f, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: daf53bac9887c3e46906c032828f7197, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: ba2f8c78a6ab5804aa7f0db36debe0d7, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: ba2f8c78a6ab5804aa7f0db36debe0d7, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -909,7 +909,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7507713733108422942, guid: b19dd9af70d7bcd42958a5d8e413cf65, type: 3}
+  m_Sprite: {fileID: 6241004887026311165, guid: 60949377fe3fa054e948d64c5488639a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2577,9 +2577,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: daf53bac9887c3e46906c032828f7197, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: ba2f8c78a6ab5804aa7f0db36debe0d7, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: ba2f8c78a6ab5804aa7f0db36debe0d7, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: 2e7bea3bf3136d64cb3fb7b50253796d, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 14faa60670a1e5642b124654dbc9c80f, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 14faa60670a1e5642b124654dbc9c80f, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -2636,7 +2636,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6241004887026311165, guid: 60949377fe3fa054e948d64c5488639a, type: 3}
+  m_Sprite: {fileID: 7507713733108422942, guid: b19dd9af70d7bcd42958a5d8e413cf65, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
