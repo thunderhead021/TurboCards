@@ -9,7 +9,7 @@ public class TrainingManager : Manager<TrainingManager>
     public TrainningController trainningController = new();
 
     [HideInInspector]
-    public int TrainingAmount = 5;
+    public int TrainingAmount = 1;
 
     public DeckView DeckView;
 
@@ -37,7 +37,7 @@ public class TrainingManager : Manager<TrainingManager>
 
     public void ResetTrainingAmount()
     {
-        TrainingAmount = 5;
+        TrainingAmount = 1;
         uIView.UpdateRemainTurn(TrainingAmount);
         Active_Activities.Clear();
         switch (DeckController.Instance.GetPlayerSuit())
@@ -95,9 +95,15 @@ public class TrainingManager : Manager<TrainingManager>
 
         if (TrainingAmount <= 0)
         {
-            SceneManager.LoadScene("Run Scene");
-            RaceManager.Instance.CreateRaceTrack(70 + (GameManager.Instance.round + 1) * 10);
+            StartCoroutine(LoadRunSceneCoroutine());
         }
+    }
+
+    IEnumerator LoadRunSceneCoroutine() 
+    {
+        SceneManager.LoadScene("Run Scene");
+        yield return new WaitForSecondsRealtime(1);
+        RaceManager.Instance.CreateRaceTrack(70 + (GameManager.Instance.round + 1) * 10);
     }
 
     public void QTAResult(bool isSucess, TrainingType trainingType, int difficulty)
@@ -292,13 +298,7 @@ public class TrainingManager : Manager<TrainingManager>
                 }
                 break;
         }
-        StartCoroutine(ShowCardCoroutine(result));
-        UpDateTrainingAmount();
-        GameObject deck = GameObject.FindGameObjectWithTag("Deck");
-        if (deck != null)
-        {
-            deck.GetComponent<DeckView>().ShowDeck();
-        }
+        StartCoroutine(ShowCardCoroutine(result));    
     }
 
     private IEnumerator ShowCardCoroutine(List<CardModel> cards)
@@ -323,6 +323,17 @@ public class TrainingManager : Manager<TrainingManager>
             Destroy(cardGOs[i]);
         }
         CardModifedTray.gameObject.SetActive(false);
+        while (elapsed < 1f)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        GameObject deckGO = GameObject.FindGameObjectWithTag("Deck");
+        if (deckGO != null)
+        {
+            deckGO.GetComponent<DeckView>().ShowDeck();
+        }
+        UpDateTrainingAmount();
     }
 }
 

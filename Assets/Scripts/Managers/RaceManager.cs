@@ -36,11 +36,6 @@ public class RaceManager : Manager<RaceManager>
         Instance.Shuffle();
     }
 
-    private void Start()
-    {
-        CreateRaceTrack(80);
-    }
-
     public void CreateRaceTrack(int goal) 
     {
         raceController.SetGoal(goal);
