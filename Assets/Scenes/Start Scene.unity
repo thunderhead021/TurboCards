@@ -939,7 +939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc58d29ec4fa444bab72dc66eeb5329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HeaderText: Norma Lise
+  HeaderText: Liz Norma
   TooltipText: 
 --- !u!114 &291837808
 MonoBehaviour:
