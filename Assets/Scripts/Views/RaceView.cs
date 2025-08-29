@@ -41,7 +41,7 @@ public class RaceView : MonoBehaviour
     public void UpdateMiddlePart(int[][] RaceTrack) 
     {
         int rows = RaceTrack.GetLength(0);
-        int cols = RaceTrack.GetLength(1);
+        int cols = RaceTrack[0].Length;
         int[][] middlePart = new int[rows][];
         for (int i = 0; i < rows; i++) 
         {
@@ -54,7 +54,11 @@ public class RaceView : MonoBehaviour
                 middlePart[r][c - 1] = RaceTrack[r][c];
             }
         }
-        RaceMiddlePart.UpdateParts(middlePart);
+        GameObject Race_Middle = GameObject.FindGameObjectWithTag("Race_Middle");
+        if (Race_Middle != null) 
+        {
+            Race_Middle.GetComponent<Race_MiddlePart>().UpdateParts(middlePart, cols - 2);
+        }
     }
 
     public void MoveUnit(Suit suit, int position) 

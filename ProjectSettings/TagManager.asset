@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Playmat
   - Deck
+  - Race_Middle
   layers:
   - Default
   - TransparentFX
