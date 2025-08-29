@@ -9,7 +9,7 @@ public class TrainingManager : Manager<TrainingManager>
     public TrainningController trainningController = new();
 
     [HideInInspector]
-    public int TrainingAmount = 1;
+    public int TrainingAmount = 5;
 
     public DeckView DeckView;
 
@@ -37,7 +37,7 @@ public class TrainingManager : Manager<TrainingManager>
 
     public void ResetTrainingAmount()
     {
-        TrainingAmount = 1;
+        TrainingAmount = 5;
         uIView.UpdateRemainTurn(TrainingAmount);
         Active_Activities.Clear();
         switch (DeckController.Instance.GetPlayerSuit())
