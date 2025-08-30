@@ -43,7 +43,7 @@ public class TrainingManager : Manager<TrainingManager>
         switch (DeckController.Instance.GetPlayerSuit())
         {
             //normal 
-            case (Suit)0:
+            case (Suit)2:
                 Active_Activities.Add(Activities[0]);
                 Active_Activities.Add(Activities[1]);
                 Active_Activities.Add(Activities[4]);
@@ -55,7 +55,7 @@ public class TrainingManager : Manager<TrainingManager>
                 Active_Activities.Add(Activities[3]);
                 break;
             //caring
-            case (Suit)2:
+            case (Suit)0:
                 Active_Activities.Add(Activities[0]);
                 Active_Activities.Add(Activities[2]);
                 Active_Activities.Add(Activities[4]);
