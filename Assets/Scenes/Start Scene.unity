@@ -2423,7 +2423,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tutorial here
+  m_text: "<b>Your Mission</b>\nBe the first to grab 5 limited-edition biscuits before
+    your rivals get them! Don\u2019t crumble under the pressure\u2014every move counts.\n<b>The
+    Prep Phase</b>\nYou have 5 turns to gear up before the race officially begins.
+    Think of it as your warm-up before things get really crunchy.\n<b>How It Works</b>\n*
+    Each turn, you can join an activity.\n* Activities have different difficulties,
+    and they\u2019ll change every round.\n* Once you choose, you\u2019ll face a minigame
+    challenge.\n* Your performance in the minigame decides the rewards, or setbacks
+    you\u2019ll carry into the race."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2450,10 +2457,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 31.2
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
