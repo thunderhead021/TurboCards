@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class TextRTE_View : RTE_View
 {
@@ -57,5 +58,14 @@ public class TextRTE_View : RTE_View
         timer.value = 0f;
 
         SendResult(false);
+    }
+
+    public void ValidateInput(string _)
+    {
+        if (!promptText.text.StartsWith(playerInput.text))
+        {
+            playerInput.text = playerInput.text[..^1];
+            playerInput.caretPosition = playerInput.text.Length;
+        }
     }
 }

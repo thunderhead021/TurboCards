@@ -470,6 +470,8 @@ GameObject:
   - component: {fileID: 5733290826457192055}
   - component: {fileID: 4615753730148755043}
   - component: {fileID: 1010631516323672225}
+  - component: {fileID: 9162317943364018471}
+  - component: {fileID: 5281797860428816807}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -567,3 +569,63 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 517563cdd7cff3e4faef5eedbec6aca0, type: 3}
   - {fileID: 21300000, guid: 6dc94e189e8b07448bc9043c24ff8e42, type: 3}
   - {fileID: 21300000, guid: ad0a9868a86677144832734d3ca1b1f2, type: 3}
+  tooltip: {fileID: 9162317943364018471}
+--- !u!114 &9162317943364018471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8902208584927762901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc58d29ec4fa444bab72dc66eeb5329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HeaderText: 
+  TooltipText: 
+--- !u!114 &5281797860428816807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8902208584927762901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9162317943364018471}
+          m_TargetAssemblyTypeName: Tooltip, Assembly-CSharp
+          m_MethodName: MouseOver
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9162317943364018471}
+          m_TargetAssemblyTypeName: Tooltip, Assembly-CSharp
+          m_MethodName: MouseOut
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

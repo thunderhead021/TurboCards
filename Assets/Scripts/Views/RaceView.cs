@@ -15,7 +15,10 @@ public class RaceView : MonoBehaviour
     [HideInInspector]
     public List<GameObject> CurrentTrack = new();
     public List<Image> UnitEffects = new();
+    public List<Image> MiniUnitEffects = new();
     public List<Sprite> Effects = new();
+    public List<Tooltip> UnitTooltips = new();
+    public List<Tooltip> MiniUnitTooltips = new();
 
     public void UpdateUnitEffects() 
     {
@@ -23,18 +26,31 @@ public class RaceView : MonoBehaviour
 
         for (int i = 0; i < 4; i++) 
         {
-            if (unitBuff[i][0] > 0) 
+            if (unitBuff[i][0] > 0)
             {
                 UnitEffects[i].gameObject.SetActive(true);
                 UnitEffects[i].sprite = Effects[1];
+                MiniUnitEffects[i].gameObject.SetActive(true);
+                MiniUnitEffects[i].sprite = Effects[1];
+                UnitTooltips[i].TooltipText = "+" + unitBuff[i][0] + " for the next " + unitBuff[i][1] + (unitBuff[i][1] > 1 ? " cards" : " card");
+                MiniUnitTooltips[i].TooltipText = "+" + unitBuff[i][0] + " for the next " + unitBuff[i][1] + (unitBuff[i][1] > 1 ? " cards" : " card");
             }
-            else if(unitBuff[i][0] < 0)
+            else if (unitBuff[i][0] < 0)
             {
                 UnitEffects[i].gameObject.SetActive(true);
                 UnitEffects[i].sprite = Effects[0];
+                MiniUnitEffects[i].gameObject.SetActive(true);
+                MiniUnitEffects[i].sprite = Effects[0];
+                UnitTooltips[i].TooltipText = "-" + unitBuff[i][0] + " for the next " + unitBuff[i][1] + (unitBuff[i][1] > 1 ? " cards" : " card");
+                MiniUnitTooltips[i].TooltipText = "-" + unitBuff[i][0] + " for the next " + unitBuff[i][1] + (unitBuff[i][1] > 1 ? " cards" : " card");
             }
             else
+            {
                 UnitEffects[i].gameObject.SetActive(false);
+                MiniUnitEffects[i].gameObject.SetActive(false);
+                UnitTooltips[i].TooltipText = "";
+                MiniUnitTooltips[i].TooltipText = "";
+            }
         }
     }
 
