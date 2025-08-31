@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeckView : MonoBehaviour
 {
@@ -13,7 +14,10 @@ public class DeckView : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        TrainingManager.Instance.ResetTrainingAmount();
+        if (SceneManager.GetActiveScene().name == "Training Scene")
+        {
+            TrainingManager.Instance.ResetTrainingAmount();
+        }    
         ShowDeck();
     }
 

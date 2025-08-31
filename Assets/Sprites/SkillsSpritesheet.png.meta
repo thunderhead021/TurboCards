@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -143,7 +143,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 360
+        y: 420
         width: 60
         height: 60
       alignment: 0
@@ -165,7 +165,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 60
-        y: 360
+        y: 420
         width: 60
         height: 60
       alignment: 0
@@ -187,7 +187,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 120
-        y: 360
+        y: 420
         width: 60
         height: 60
       alignment: 0
@@ -209,7 +209,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 180
-        y: 360
+        y: 420
         width: 60
         height: 60
       alignment: 0
@@ -231,7 +231,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 300
+        y: 360
         width: 60
         height: 60
       alignment: 0
@@ -253,7 +253,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 60
-        y: 300
+        y: 360
         width: 60
         height: 60
       alignment: 0
@@ -275,7 +275,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 120
-        y: 300
+        y: 360
         width: 60
         height: 60
       alignment: 0
@@ -297,7 +297,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 180
-        y: 300
+        y: 360
         width: 60
         height: 60
       alignment: 0
@@ -319,7 +319,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 240
+        y: 300
         width: 60
         height: 60
       alignment: 0
@@ -341,7 +341,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 60
-        y: 240
+        y: 300
         width: 60
         height: 60
       alignment: 0
@@ -363,7 +363,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 120
-        y: 240
+        y: 300
         width: 60
         height: 60
       alignment: 0
@@ -385,7 +385,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 180
-        y: 240
+        y: 300
         width: 60
         height: 60
       alignment: 0
@@ -407,7 +407,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 180
+        y: 240
         width: 60
         height: 60
       alignment: 0
@@ -429,7 +429,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 60
-        y: 180
+        y: 240
         width: 60
         height: 60
       alignment: 0
@@ -451,7 +451,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 120
-        y: 180
+        y: 240
         width: 60
         height: 60
       alignment: 0
@@ -473,7 +473,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 180
-        y: 180
+        y: 240
         width: 60
         height: 60
       alignment: 0
@@ -495,7 +495,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 120
+        y: 180
         width: 60
         height: 60
       alignment: 0
@@ -517,7 +517,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 60
-        y: 120
+        y: 180
         width: 60
         height: 60
       alignment: 0
@@ -539,7 +539,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 120
-        y: 120
+        y: 180
         width: 60
         height: 60
       alignment: 0
@@ -561,7 +561,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 180
-        y: 120
+        y: 180
         width: 60
         height: 60
       alignment: 0
@@ -583,7 +583,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 60
+        y: 120
         width: 60
         height: 60
       alignment: 0
@@ -605,7 +605,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 60
-        y: 60
+        y: 120
         width: 60
         height: 60
       alignment: 0
@@ -627,7 +627,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 120
-        y: 60
+        y: 120
         width: 60
         height: 60
       alignment: 0
@@ -649,7 +649,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 180
-        y: 60
+        y: 120
         width: 60
         height: 60
       alignment: 0
@@ -671,7 +671,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 60
         width: 60
         height: 60
       alignment: 0
@@ -693,7 +693,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 60
-        y: 0
+        y: 60
         width: 60
         height: 60
       alignment: 0
@@ -715,7 +715,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 120
-        y: 0
+        y: 60
         width: 60
         height: 60
       alignment: 0
@@ -728,6 +728,116 @@ TextureImporter:
       bones: []
       spriteID: 3b209f5863d96184795a5e8ae2dff23b
       internalID: -119194916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkillsSpritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 60
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c87ab5e091c1b0b469609b71bf739bf8
+      internalID: -1162662896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkillsSpritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6692dd7e5db66c545b785c167960e193
+      internalID: -1526919531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkillsSpritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 0
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1139a1d3fecd42c41b951db947e31116
+      internalID: -902476917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkillsSpritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c11608c94a471a945929072073597a9e
+      internalID: -1256402898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkillsSpritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c413aecb26af11440acf1a95597b99ac
+      internalID: -1761811237
       vertices: []
       indices: 
       edges: []
@@ -766,7 +876,12 @@ TextureImporter:
       SkillsSpritesheet_24: -869118607
       SkillsSpritesheet_25: -1966574690
       SkillsSpritesheet_26: -119194916
+      SkillsSpritesheet_27: -1162662896
+      SkillsSpritesheet_28: -1526919531
+      SkillsSpritesheet_29: -902476917
       SkillsSpritesheet_3: -1194066835
+      SkillsSpritesheet_30: -1256402898
+      SkillsSpritesheet_31: -1761811237
       SkillsSpritesheet_4: -1542747933
       SkillsSpritesheet_5: -993719677
       SkillsSpritesheet_6: 893367482

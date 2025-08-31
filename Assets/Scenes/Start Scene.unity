@@ -159,9 +159,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 142.1695, y: 450.30505}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 1.05, y: 1.05}
+  m_AnchoredPosition: {x: -680.339, y: 19.525421}
+  m_SizeDelta: {x: 249.6, y: 100}
+  m_Pivot: {x: -0.05, y: 1.05}
 --- !u!114 &67329844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -677,8 +677,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -50}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 124.8, y: -50}
+  m_SizeDelta: {x: 229.6, y: 33.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &261621916
 MonoBehaviour:
@@ -1028,7 +1028,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HeaderText: Liz Norma
-  TooltipText: 
+  TooltipText: 'Activities: <sprite name="BuffValue">, <sprite name="DebuffValue">,
+    <sprite name="Swap">'
 --- !u!114 &291837808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1248,7 +1249,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HeaderText: Grandon Steele
-  TooltipText: 
+  TooltipText: '+1 Minimum difficulty
+
+    Activities: <sprite name="BuffValue">,
+    <sprite name="AddBuffSkill">, <sprite name="AddDebuffSkill">'
 --- !u!114 &380047363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2577,7 +2581,9 @@ MonoBehaviour:
     your rivals get them! Don\u2019t crumble under the pressure\u2014every move counts.\n<b>The
     Prep Phase</b>\nYou have 5 turns to gear up before the race officially begins.
     Think of it as your warm-up before things get really crunchy.\n<b>How It Works</b>\n*
-    Each turn, you can join an activity.\n* Activities have different difficulties,
+    Each turn, you can join an activity.\n* Activities have different difficulties
+    (<color=#FF4C4C><b>Extreme</b></color>,  <color=#FF914D><b>Hard</b></color>,
+    <color=#FFE75E><b>Normal</b></color> and <color=#4DDC64><b>Easy</b></color>),
     and they\u2019ll change every round.\n* Once you choose, you\u2019ll face a minigame
     challenge.\n* Your performance in the minigame decides the rewards, or setbacks
     you\u2019ll carry into the race."
@@ -2607,7 +2613,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27.5
+  m_fontSize: 25.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2970,7 +2976,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HeaderText: Amara Heartly
-  TooltipText: 
+  TooltipText: 'Activities: <sprite name="BuffValue">, <sprite name="AddBuffSkill">,
+    <sprite name="Swap">'
 --- !u!114 &1430052903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3277,7 +3284,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -50}
+  m_AnchoredPosition: {x: 10, y: -33.239998}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1830669685
@@ -3553,7 +3560,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HeaderText: Jessica Tricks
-  TooltipText: 
+  TooltipText: 'Activities: <sprite name="DebuffValue">, <sprite name="AddDebuffSkill">,
+    <sprite name="Swap">'
 --- !u!114 &2013899557
 MonoBehaviour:
   m_ObjectHideFlags: 0
