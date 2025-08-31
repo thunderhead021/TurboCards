@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TrainingManager : Manager<TrainingManager>
 {
@@ -30,6 +31,10 @@ public class TrainingManager : Manager<TrainingManager>
 
     public void StartAnActivity(int difficult, TrainingType trainingType)
     {
+        foreach (var activity in Active_Activities) 
+        {
+            activity.gameObject.GetComponent<Button>().interactable = false;
+        }
         GameObject canvas = GameObject.FindGameObjectWithTag("Playmat");
         RTE_View rTE_View = Instantiate(RTAEvents[Random.Range(0, RTAEvents.Count)], canvas.transform);
         rTE_View.Setup(difficult, trainingType);
@@ -332,6 +337,10 @@ public class TrainingManager : Manager<TrainingManager>
         if (deckGO != null)
         {
             deckGO.GetComponent<DeckView>().ShowDeck();
+        }
+        foreach (var activity in Active_Activities)
+        {
+            activity.gameObject.GetComponent<Button>().interactable = true;
         }
         UpDateTrainingAmount();
     }
