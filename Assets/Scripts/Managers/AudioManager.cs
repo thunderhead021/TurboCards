@@ -6,8 +6,14 @@ public class AudioManager : Manager<AudioManager>
     public List<AudioClip> cardDrawnList;
     public List<AudioClip> charSelectList;
     public List<AudioClip> buttonClickList;
-
+    public List<AudioClip> ballonsList;
     public AudioSource audioSource;
+
+    public void PopBallons()
+    {
+        audioSource.clip = ballonsList[Random.Range(0, ballonsList.Count)];
+        audioSource.Play();
+    }
 
     public void CharSelect()
     {

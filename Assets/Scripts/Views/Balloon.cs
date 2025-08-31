@@ -11,6 +11,7 @@ public class Balloon : MonoBehaviour
 
     public void PopBalloon()
     {
+        AudioManager.Instance.PopBallons();
         popRTE_View.PopBalloon(gameObject);
     }
 }

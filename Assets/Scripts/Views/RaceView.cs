@@ -20,6 +20,9 @@ public class RaceView : MonoBehaviour
     public List<Tooltip> UnitTooltips = new();
     public List<Tooltip> MiniUnitTooltips = new();
 
+    public List<GameObject> UnitPlayer = new();
+    public List<GameObject> MiniUnitPlayer = new();
+
     public void UpdateUnitEffects() 
     {
         var unitBuff = RaceController.Instance.GetSuitBuff();
@@ -165,5 +168,8 @@ public class RaceView : MonoBehaviour
             unit.minValue = 0;
             unit.value = 0;
         }
+
+        UnitPlayer[(int)DeckController.Instance.GetPlayerSuit()].SetActive(true);
+        MiniUnitPlayer[(int)DeckController.Instance.GetPlayerSuit()].SetActive(true);
     }
 }
