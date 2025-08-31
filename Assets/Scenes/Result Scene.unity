@@ -859,7 +859,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 2106610135}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: ContinueGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

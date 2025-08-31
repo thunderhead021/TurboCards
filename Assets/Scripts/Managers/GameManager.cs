@@ -38,7 +38,13 @@ public class GameManager : Manager<GameManager>
     public void NewGame()
     {
         DeckController.Instance.Reset();
-        round++;
+        round = 0;
         SceneManager.LoadScene("Start Scene");
+    }
+
+    public void ContinueGame() 
+    {
+        round++;
+        SceneManager.LoadScene("Training Scene");
     }
 }

@@ -48,7 +48,7 @@ public abstract class RTE_View : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
-        TrainingManager.Instance.QTAResult(false, trainingType, difficulty);
+        TrainingManager.Instance.QTAResult(success, trainingType, difficulty);
         Destroy(gameObject);
     }
 
