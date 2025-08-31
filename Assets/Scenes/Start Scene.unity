@@ -3795,6 +3795,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7579107472629133572, guid: 7382ab3911c78164c995a3deb98611ff, type: 3}
+      propertyPath: ballonsList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7579107472629133572, guid: 7382ab3911c78164c995a3deb98611ff, type: 3}
+      propertyPath: 'ballonsList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: fe6074e8ea970a949995c13ae39014d5, type: 3}
+    - target: {fileID: 7579107472629133572, guid: 7382ab3911c78164c995a3deb98611ff, type: 3}
+      propertyPath: 'ballonsList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 34ff3f884e6d645429efb1722b0a1127, type: 3}
+    - target: {fileID: 7579107472629133572, guid: 7382ab3911c78164c995a3deb98611ff, type: 3}
+      propertyPath: 'ballonsList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1b4fc13b834277843b1e834c5a542a6b, type: 3}
+    - target: {fileID: 7579107472629133572, guid: 7382ab3911c78164c995a3deb98611ff, type: 3}
+      propertyPath: 'ballonsList.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9c2a12f91b1232045afdfd250a8a9751, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
